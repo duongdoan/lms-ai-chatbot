@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Knowledge nội bộ (demo)",
+    "environment": "LMS giả lập — chưa kết nối hệ thống thật"
+  },
+  "domains": [
+    {
+      "id": "technical",
+      "label": "Technical",
+      "summary": "Khóa kỹ thuật, vận hành, bảo trợ theo nhóm chức năng."
+    },
+    {
+      "id": "safety",
+      "label": "Safety",
+      "summary": "An toàn bay, an toàn mặt đất, ứng phó tình huống."
+    },
+    {
+      "id": "service",
+      "label": "Service",
+      "summary": "Dịch vụ hành khách, giao tiếp, tiêu chuẩn thương hiệu."
+    },
+    {
+      "id": "compliance",
+      "label": "Compliance",
+      "summary": "Quy định nội bộ, bảo mật thông tin, đạo đức nghề nghiệp."
+    }
+  ],
+  "processOutline": [
+    "Xem chương trình / khóa trong LMS (giả lập).",
+    "Đăng ký theo hướng dẫn vị trí hoặc khóa bắt buộc.",
+    "Hoàn thành học — làm bài đánh giá nếu có.",
+    "Ghi nhận hoàn thành / chứng chỉ theo quy định nội bộ (dữ liệu demo có thể chưa đầy đủ)."
+  ],
+  "sampleCourses": [
+    {
+      "code": "DEMO-SAF-001",
+      "name": "Nhập môn an toàn hàng không (demo)",
+      "audience": "Nhân viên mới",
+      "notes": "Ví dụ minh họa — không phải mã khóa thật."
+    },
+    {
+      "code": "DEMO-SRV-001",
+      "name": "Tiêu chuẩn dịch vụ cabin (demo)",
+      "audience": "Tiếp viên",
+      "notes": "Ví dụ minh họa."
+    }
+  ],
+  "limitations": [
+    "Không có lịch học, trạng thái cá nhân, hay quy định chi tiết từng phòng ban thật.",
+    "Khi thiếu thông tin: trả lời theo nguyên tắc \"chưa có trong hệ thống demo\"."
+  ]
+}

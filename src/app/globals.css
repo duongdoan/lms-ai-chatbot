@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
+/* Viettel-inspired palette (viettel.com.vn: đỏ thương hiệu, nền sáng, viền tinh tế) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f4f4;
+  --foreground: #1a1a1a;
+  --viettel-red: #ee0033;
+  --viettel-red-hover: #d4002e;
+  --viettel-red-soft: #fff0f3;
+  --viettel-border: #e5e5e5;
+  --viettel-card: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-viettel: var(--viettel-red);
+  --color-viettel-hover: var(--viettel-red-hover);
+  --color-viettel-soft: var(--viettel-red-soft);
+  --color-viettel-border: var(--viettel-border);
+  --color-viettel-card: var(--viettel-card);
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

@@ -1,65 +1,160 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useState } from 'react';
+
+type Message = {
+  role: 'user' | 'assistant';
+  content: string;
+};
+
+const starterQuestions = [
+  'Khóa học và chứng chỉ phù hợp với vị trí của tôi?',
+  'Quy trình đào tạo nội bộ thường gồm những bước nào?',
+  'Giới hạn của bản demo hiện tại là gì?',
+];
+
+export default function HomePage() {
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: 'assistant',
+      content:
+        'Xin chào, tôi là VNA Learning Assistant — trợ lý học tập nội bộ cho nhân viên Vietnam Airlines. Bạn có thể hỏi về khóa học, quy trình đào tạo, chứng chỉ hoặc gợi ý lộ trình theo vị trí.',
+    },
+  ]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function sendMessage(text?: string) {
+    const content = (text ?? input).trim();
+    if (!content || loading) return;
+
+    const nextMessages: Message[] = [...messages, { role: 'user', content }];
+    setMessages(nextMessages);
+    setInput('');
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: nextMessages }),
+      });
+
+      const data = await res.json();
+
+      setMessages([
+        ...nextMessages,
+        {
+          role: 'assistant',
+          content: data?.text || 'Không có phản hồi.',
+        },
+      ]);
+    } catch {
+      setMessages([
+        ...nextMessages,
+        {
+          role: 'assistant',
+          content: 'Có lỗi xảy ra khi gọi chatbot.',
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-viettel-border bg-viettel shadow-[0_1px_0_rgba(0,0,0,0.06)]">
+        <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3.5">
+          <span
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/15 text-sm font-bold text-white ring-1 ring-white/25"
+            aria-hidden
+          >
+            V
+          </span>
+          <div className="min-w-0">
+            <h1 className="truncate text-lg font-semibold tracking-tight text-white">
+              VNA Learning Assistant
+            </h1>
+            <p className="truncate text-xs text-white/85">
+              Trợ lý học tập nội bộ — hỗ trợ tra cứu đào tạo
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div className="mx-auto flex max-w-3xl flex-col gap-5 px-4 py-8">
+        <div className="rounded-2xl border border-viettel-border bg-viettel-card p-5 shadow-sm">
+          <p className="text-sm leading-relaxed text-neutral-600">
+            Trợ lý học tập nội bộ (demo) — tra cứu khóa học, quy trình đào tạo và lộ trình theo vị trí.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex flex-wrap gap-2">
+          {starterQuestions.map((q) => (
+            <button
+              key={q}
+              onClick={() => sendMessage(q)}
+              className="rounded-full border border-viettel/30 bg-viettel-soft px-3.5 py-1.5 text-sm font-medium text-viettel transition-colors hover:border-viettel hover:bg-white disabled:opacity-50"
+              disabled={loading}
+              type="button"
+            >
+              {q}
+            </button>
+          ))}
         </div>
-      </main>
-    </div>
+
+        <div className="min-h-[420px] rounded-2xl border border-viettel-border bg-viettel-card p-4 shadow-sm">
+          <div className="flex flex-col gap-3">
+            {messages.map((m, idx) => (
+              <div
+                key={idx}
+                className={
+                  m.role === 'user'
+                    ? 'ml-auto max-w-[85%] rounded-2xl rounded-br-md bg-viettel px-4 py-2.5 text-[15px] leading-relaxed text-white shadow-sm'
+                    : 'max-w-[85%] rounded-2xl rounded-bl-md border border-viettel-border bg-neutral-50/80 px-4 py-2.5 text-[15px] leading-relaxed text-neutral-800'
+                }
+              >
+                {m.content}
+              </div>
+            ))}
+            {loading && (
+              <div className="max-w-[85%] rounded-2xl rounded-bl-md border border-viettel-border bg-white px-4 py-2.5 text-sm text-neutral-500">
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex gap-1" aria-hidden>
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-viettel [animation-delay:-0.2s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-viettel [animation-delay:-0.1s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-viettel" />
+                  </span>
+                  Đang trả lời...
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            sendMessage();
+          }}
+          className="flex gap-2 rounded-2xl border border-viettel-border bg-viettel-card p-2 shadow-sm"
+        >
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Nhập câu hỏi..."
+            className="min-w-0 flex-1 rounded-xl border-0 bg-transparent px-3 py-2.5 text-[15px] outline-none placeholder:text-neutral-400 focus:ring-0"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="shrink-0 rounded-xl bg-viettel px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-viettel-hover disabled:opacity-50"
+          >
+            Gửi
+          </button>
+        </form>
+      </div>
+    </main>
   );
 }
