@@ -1,45 +1,24 @@
-import knowledgeData from '@/data/knowledge.json';
+import knowledge from '@/data/knowledge.json';
 
-function formatKnowledgeJson(): string {
-  const { meta, domains, processOutline, sampleCourses, limitations } =
-    knowledgeData;
+export type Knowledge = typeof knowledge;
 
-  const domainLines = domains
-    .map((d) => `  - [${d.id}] ${d.label}: ${d.summary}`)
-    .join('\n');
-
-  const processLines = processOutline.map((p) => `  - ${p}`).join('\n');
-
-  const courseLines = sampleCourses
-    .map(
-      (c) =>
-        `  - ${c.code} — ${c.name} (đối tượng: ${c.audience}). ${c.notes}`,
-    )
-    .join('\n');
-
-  const limitLines = limitations.map((l) => `  - ${l}`).join('\n');
-
-  return `
-${meta.title}
-${meta.environment}
-
-Lĩnh vực (tham chiếu):
-${domainLines}
-
-Quy trình tổng quát (mô tả):
-${processLines}
-
-Khóa học mẫu (minh họa):
-${courseLines}
-
-Giới hạn dữ liệu:
-${limitLines}
-`.trim();
+export function getKnowledge() {
+  return knowledge;
 }
 
-/** Knowledge nội bộ — nguồn: \`src/data/knowledge.json\`. */
-export const chatbotKnowledge = `
-Knowledge nội bộ (dữ liệu cấu hình):
+export function buildKnowledgePrompt() {
+  const data = getKnowledge();
 
-${formatKnowledgeJson()}
+  return `
+Thông tin knowledge nội bộ của chatbot:
+${JSON.stringify(data, null, 2)}
+
+Quy tắc sử dụng knowledge:
+- Chỉ trả lời trong phạm vi học tập và đào tạo nội bộ.
+- Ưu tiên dùng thông tin từ knowledge ở trên.
+- Nếu knowledge không có dữ liệu phù hợp, dùng fallback_rules.when_unknown.
+- Nếu câu hỏi chưa đủ rõ, dùng fallback_rules.when_ambiguous.
+- Không bịa thêm chính sách hoặc quy định.
+- Trả lời ngắn gọn, rõ ràng, thực tế bằng tiếng Việt.
 `.trim();
+}

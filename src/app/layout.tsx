@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="vi" className={`${beVietnam.variable} antialiased`}>
+      <body className="flex flex-col font-sans">{children}</body>
     </html>
   );
 }

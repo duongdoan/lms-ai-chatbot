@@ -1,0 +1,54 @@
+{
+  "id": "user_001",
+  "name": "Nguyễn Thị Hồng",
+  "role": "cabin_crew",
+  "role_label": "Tiếp viên",
+  "experience_level": "new",
+  "base_location": "SGN",
+  "learning_profile": {
+    "completed_courses": [
+      "course_002",
+      "course_020"
+    ],
+    "in_progress_courses": [
+      "course_010"
+    ],
+    "expired_certificates": [
+      "course_060"
+    ]
+  },
+  "competencies": [
+    {
+      "id": "english_general",
+      "name": "Tiếng Anh chung",
+      "current_level": "cơ bản",
+      "target_level": "trung cấp",
+      "note": "Cần cải thiện giao tiếp và viết email tiếng Anh"
+    },
+    {
+      "id": "english_aviation",
+      "name": "Tiếng Anh hàng không",
+      "current_level": "chưa có",
+      "target_level": "trung cấp",
+      "note": "Chưa học Aviation English, bắt buộc cho tiếp viên"
+    },
+    {
+      "id": "safety",
+      "name": "An toàn hàng không",
+      "current_level": "cơ bản",
+      "target_level": "nâng cao",
+      "note": "Đã hoàn thành khóa cơ bản, cần nâng cao"
+    },
+    {
+      "id": "service",
+      "name": "Dịch vụ khách hàng",
+      "current_level": "trung cấp",
+      "target_level": "nâng cao",
+      "note": "Có nền tảng giao tiếp tốt"
+    }
+  ],
+  "preferences": {
+    "language": "vi",
+    "learning_style": "blended"
+  }
+}

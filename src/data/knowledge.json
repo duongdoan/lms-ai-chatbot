@@ -1,52 +1,2616 @@
 {
-  "meta": {
-    "title": "Knowledge nội bộ (demo)",
-    "environment": "LMS giả lập — chưa kết nối hệ thống thật"
+  "assistant": {
+    "name": "VNA Learning Assistant",
+    "organization": "Vietnam Airlines",
+    "domain": "Học tập và đào tạo nội bộ",
+    "language": "vi",
+    "description": "Trợ lý học tập nội bộ hỗ trợ nhân viên tra cứu khóa học, lộ trình học, quy trình đăng ký, điều kiện hoàn thành, chứng chỉ và các câu hỏi thường gặp."
   },
-  "domains": [
+  "policies": [
     {
-      "id": "technical",
-      "label": "Technical",
-      "summary": "Khóa kỹ thuật, vận hành, bảo trợ theo nhóm chức năng."
+      "id": "policy_mandatory_annual",
+      "title": "Đào tạo bắt buộc hằng năm",
+      "content": "Một số khóa học thuộc nhóm an toàn, tuân thủ và quy trình nội bộ cần được hoàn thành theo chu kỳ hằng năm."
     },
     {
+      "id": "policy_pass_score_default",
+      "title": "Điểm đạt mặc định",
+      "content": "Với các khóa học có bài kiểm tra, điểm đạt mặc định trong hệ thống demo là từ 80 trở lên, trừ khi khóa học có quy định riêng."
+    },
+    {
+      "id": "policy_retake",
+      "title": "Thi lại",
+      "content": "Người học được phép thi lại tối đa 2 lần với các khóa có bài kiểm tra trong hệ thống demo."
+    },
+    {
+      "id": "policy_completion",
+      "title": "Điều kiện hoàn thành khóa học",
+      "content": "Một khóa học được xem là hoàn thành khi người học đã học đủ nội dung bắt buộc và đạt bài kiểm tra cuối khóa nếu khóa học yêu cầu đánh giá."
+    },
+    {
+      "id": "policy_approval",
+      "title": "Phê duyệt tham gia khóa học",
+      "content": "Một số khóa học theo vị trí hoặc có thực hành tập trung cần quản lý hoặc bộ phận đào tạo phê duyệt trước khi học."
+    },
+    {
+      "id": "policy_certificate",
+      "title": "Hiệu lực chứng chỉ",
+      "content": "Các khóa học bắt buộc có thể có thời hạn chứng chỉ 12 tháng trong hệ thống demo. Người học cần theo dõi để tái đào tạo đúng hạn."
+    },
+    {
+      "id": "policy_out_of_scope",
+      "title": "Giới hạn hệ thống demo",
+      "content": "Nếu câu hỏi vượt ngoài phạm vi knowledge hiện có, chatbot phải nói rõ chưa có thông tin trong hệ thống demo và không tự suy diễn quy định."
+    }
+  ],
+  "processes": [
+    {
+      "id": "process_course_registration",
+      "title": "Đăng ký khóa học",
+      "steps": [
+        "Đăng nhập LMS nội bộ",
+        "Tìm khóa học theo tên, nhóm kỹ năng hoặc vị trí công việc",
+        "Mở chi tiết khóa học",
+        "Nhấn đăng ký",
+        "Chờ phê duyệt nếu khóa học yêu cầu phê duyệt",
+        "Bắt đầu học khi trạng thái chuyển sang đã duyệt hoặc đang học"
+      ]
+    },
+    {
+      "id": "process_course_completion",
+      "title": "Hoàn thành khóa học",
+      "steps": [
+        "Học toàn bộ nội dung bắt buộc",
+        "Làm bài kiểm tra hoặc assessment nếu khóa học yêu cầu",
+        "Đạt điểm tối thiểu theo quy định của khóa",
+        "Hệ thống cập nhật trạng thái hoàn thành"
+      ]
+    },
+    {
+      "id": "process_retake",
+      "title": "Thi lại bài kiểm tra",
+      "steps": [
+        "Xem lại nội dung khóa học",
+        "Truy cập lại phần bài kiểm tra trong LMS",
+        "Thực hiện lượt thi lại trong giới hạn cho phép",
+        "Nếu vẫn chưa đạt, liên hệ quản lý hoặc bộ phận đào tạo"
+      ]
+    },
+    {
+      "id": "process_certificate_renewal",
+      "title": "Gia hạn chứng chỉ",
+      "steps": [
+        "Kiểm tra thời hạn chứng chỉ trong hồ sơ học tập",
+        "Tìm khóa tái đào tạo hoặc refresher tương ứng",
+        "Đăng ký học lại theo quy trình",
+        "Hoàn thành trước ngày hết hạn"
+      ]
+    }
+  ],
+  "course_categories": [
+    {
       "id": "safety",
-      "label": "Safety",
-      "summary": "An toàn bay, an toàn mặt đất, ứng phó tình huống."
+      "name": "An toàn",
+      "description": "Các khóa học về an toàn hàng không, an toàn khai thác và xử lý tình huống."
     },
     {
       "id": "service",
-      "label": "Service",
-      "summary": "Dịch vụ hành khách, giao tiếp, tiêu chuẩn thương hiệu."
+      "name": "Dịch vụ",
+      "description": "Các khóa học nâng cao chất lượng phục vụ và trải nghiệm hành khách."
     },
     {
       "id": "compliance",
-      "label": "Compliance",
-      "summary": "Quy định nội bộ, bảo mật thông tin, đạo đức nghề nghiệp."
-    }
-  ],
-  "processOutline": [
-    "Xem chương trình / khóa trong LMS (giả lập).",
-    "Đăng ký theo hướng dẫn vị trí hoặc khóa bắt buộc.",
-    "Hoàn thành học — làm bài đánh giá nếu có.",
-    "Ghi nhận hoàn thành / chứng chỉ theo quy định nội bộ (dữ liệu demo có thể chưa đầy đủ)."
-  ],
-  "sampleCourses": [
-    {
-      "code": "DEMO-SAF-001",
-      "name": "Nhập môn an toàn hàng không (demo)",
-      "audience": "Nhân viên mới",
-      "notes": "Ví dụ minh họa — không phải mã khóa thật."
+      "name": "Tuân thủ",
+      "description": "Các khóa học về quy định nội bộ, chuẩn mực và kiểm soát rủi ro tuân thủ."
     },
     {
-      "code": "DEMO-SRV-001",
-      "name": "Tiêu chuẩn dịch vụ cabin (demo)",
-      "audience": "Tiếp viên",
-      "notes": "Ví dụ minh họa."
+      "id": "system",
+      "name": "Hệ thống",
+      "description": "Các khóa học hướng dẫn sử dụng hệ thống nội bộ và công cụ số."
+    },
+    {
+      "id": "management",
+      "name": "Quản lý",
+      "description": "Các khóa học dành cho quản lý, tổ trưởng và nhân sự dẫn dắt đội nhóm."
+    },
+    {
+      "id": "english_general",
+      "name": "Tiếng Anh chung",
+      "description": "Các khóa học tiếng Anh giao tiếp và ứng dụng trong công việc."
+    },
+    {
+      "id": "english_aviation",
+      "name": "Tiếng Anh hàng không",
+      "description": "Các khóa học tiếng Anh chuyên ngành hàng không và phục vụ quốc tế."
+    },
+    {
+      "id": "soft_skill",
+      "name": "Kỹ năng mềm",
+      "description": "Các khóa học hỗ trợ hiệu suất, phối hợp và phát triển cá nhân."
     }
   ],
-  "limitations": [
-    "Không có lịch học, trạng thái cá nhân, hay quy định chi tiết từng phòng ban thật.",
-    "Khi thiếu thông tin: trả lời theo nguyên tắc \"chưa có trong hệ thống demo\"."
+  "courses": [
+    {
+      "id": "course_001",
+      "title": "An toàn Hàng không cơ bản",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "8h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "an toàn",
+        "aviation safety",
+        "safety awareness"
+      ],
+      "description": "Kiến thức nền tảng về an toàn hàng không, nhận diện nguy cơ và nguyên tắc làm việc an toàn."
+    },
+    {
+      "id": "course_002",
+      "title": "Xử lý tình huống khẩn cấp cơ bản",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "ground_staff",
+        "cabin_crew"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "khẩn cấp",
+        "emergency response",
+        "incident"
+      ],
+      "description": "Kỹ năng phản ứng ban đầu khi phát sinh tình huống khẩn cấp trong khai thác và phục vụ."
+    },
+    {
+      "id": "course_003",
+      "title": "An toàn hành lý và hàng hóa",
+      "category": "safety",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cargo_staff"
+      ],
+      "duration": "5h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "baggage",
+        "cargo safety",
+        "handling"
+      ],
+      "description": "Quy trình bảo đảm an toàn đối với hành lý, hàng hóa và thiết bị phục vụ mặt đất."
+    },
+    {
+      "id": "course_004",
+      "title": "Nhận diện rủi ro trong vận hành",
+      "category": "safety",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "risk",
+        "rủi ro",
+        "hazard"
+      ],
+      "description": "Nhận diện, báo cáo và giảm thiểu rủi ro trong môi trường vận hành hàng không."
+    },
+    {
+      "id": "course_005",
+      "title": "Phòng chống vật phẩm nguy hiểm",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cargo_staff",
+        "security_staff"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "dangerous goods",
+        "DG",
+        "vật phẩm nguy hiểm"
+      ],
+      "description": "Nhận biết vật phẩm nguy hiểm và tuân thủ quy trình xử lý theo quy định."
+    },
+    {
+      "id": "course_006",
+      "title": "An toàn sân đỗ cho nhân viên mặt đất",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "ground_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "ramp safety",
+        "sân đỗ",
+        "airside"
+      ],
+      "description": "Nguyên tắc an toàn khi làm việc tại sân đỗ, khu vực airside và quanh tàu bay."
+    },
+    {
+      "id": "course_007",
+      "title": "An toàn khoang khách cho tiếp viên",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": [
+        "cabin_crew"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "cabin safety",
+        "khoang khách",
+        "tiếp viên"
+      ],
+      "description": "Các nguyên tắc an toàn khoang khách, kiểm tra trước chuyến bay và xử lý tình huống cơ bản."
+    },
+    {
+      "id": "course_008",
+      "title": "PCCC cơ bản tại nơi làm việc",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "fire safety",
+        "PCCC",
+        "phòng cháy"
+      ],
+      "description": "Kiến thức và thực hành cơ bản về phòng cháy chữa cháy tại nơi làm việc."
+    },
+    {
+      "id": "course_009",
+      "title": "Sơ cứu y tế ban đầu",
+      "category": "safety",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "first aid",
+        "sơ cứu",
+        "medical"
+      ],
+      "description": "Trang bị kỹ năng sơ cứu ban đầu trong các tình huống phổ biến tại nơi làm việc."
+    },
+    {
+      "id": "course_010",
+      "title": "An toàn thông tin trong môi trường khai thác",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "security awareness",
+        "an toàn thông tin",
+        "phishing"
+      ],
+      "description": "Bảo vệ dữ liệu, tài khoản và thiết bị trong môi trường làm việc số."
+    },
+    {
+      "id": "course_011",
+      "title": "Quản lý mệt mỏi và fit-to-work",
+      "category": "safety",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "cabin_crew",
+        "pilot",
+        "ground_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "fatigue",
+        "fit to work",
+        "mệt mỏi"
+      ],
+      "description": "Nhận biết dấu hiệu mệt mỏi và nguyên tắc bảo đảm đủ điều kiện làm việc an toàn."
+    },
+    {
+      "id": "course_012",
+      "title": "SMS cơ bản cho nhân viên khai thác",
+      "category": "safety",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cabin_crew",
+        "pilot",
+        "technical_staff"
+      ],
+      "duration": "5h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "SMS",
+        "safety management system",
+        "báo cáo an toàn"
+      ],
+      "description": "Giới thiệu hệ thống quản lý an toàn và vai trò của nhân viên trong việc báo cáo, phòng ngừa."
+    },
+    {
+      "id": "course_013",
+      "title": "Điều tra sự cố mức cơ bản",
+      "category": "safety",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager",
+        "safety_staff"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "incident investigation",
+        "root cause",
+        "sự cố"
+      ],
+      "description": "Phương pháp thu thập thông tin và phân tích nguyên nhân ban đầu của sự cố."
+    },
+    {
+      "id": "course_014",
+      "title": "Quy trình báo cáo nguy cơ an toàn",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "safety report",
+        "báo cáo nguy cơ",
+        "hazard report"
+      ],
+      "description": "Hướng dẫn cách phát hiện, ghi nhận và báo cáo nguy cơ an toàn đúng kênh."
+    },
+    {
+      "id": "course_015",
+      "title": "Tái đào tạo an toàn định kỳ",
+      "category": "safety",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "refresher",
+        "định kỳ",
+        "safety refresher"
+      ],
+      "description": "Ôn tập các điểm quan trọng về an toàn và cập nhật yêu cầu mới trong chu kỳ hàng năm."
+    },
+    {
+      "id": "course_016",
+      "title": "Dịch vụ khách hàng tiêu chuẩn 5 sao",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cabin_crew",
+        "cskh"
+      ],
+      "duration": "16h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "customer service",
+        "5 sao",
+        "dịch vụ"
+      ],
+      "description": "Nâng cao trải nghiệm khách hàng theo tiêu chuẩn dịch vụ cao cấp của hãng."
+    },
+    {
+      "id": "course_017",
+      "title": "Giao tiếp với khách hàng khó tính",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cskh",
+        "ground_staff",
+        "cabin_crew"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "communication",
+        "conflict",
+        "khách hàng khó"
+      ],
+      "description": "Kỹ năng giao tiếp bình tĩnh, rõ ràng và hiệu quả trong các tình huống căng thẳng."
+    },
+    {
+      "id": "course_018",
+      "title": "Kỹ năng xử lý khiếu nại",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cskh",
+        "ground_staff"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "complaint",
+        "khiếu nại",
+        "service recovery"
+      ],
+      "description": "Quy trình tiếp nhận, phân tích và phản hồi khiếu nại theo hướng dịch vụ tích cực."
+    },
+    {
+      "id": "course_019",
+      "title": "Nghi thức phục vụ hành khách cao cấp",
+      "category": "service",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "advanced",
+      "target_roles": [
+        "cabin_crew",
+        "vip_service"
+      ],
+      "duration": "8h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "premium service",
+        "VIP",
+        "business class"
+      ],
+      "description": "Tiêu chuẩn phục vụ hành khách cao cấp và kỹ năng tinh tế trong trải nghiệm dịch vụ."
+    },
+    {
+      "id": "course_020",
+      "title": "Giao tiếp qua điện thoại và email chuyên nghiệp",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "cskh",
+        "sales_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "phone",
+        "email",
+        "professional communication"
+      ],
+      "description": "Chuẩn mực giao tiếp qua điện thoại và email trong môi trường dịch vụ hàng không."
+    },
+    {
+      "id": "course_021",
+      "title": "Dịch vụ quầy check-in chuyên nghiệp",
+      "category": "service",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff"
+      ],
+      "duration": "8h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "check-in",
+        "counter service",
+        "quầy thủ tục"
+      ],
+      "description": "Quy trình phục vụ quầy check-in nhanh, đúng chuẩn và thân thiện."
+    },
+    {
+      "id": "course_022",
+      "title": "Dịch vụ boarding gate hiệu quả",
+      "category": "service",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff"
+      ],
+      "duration": "5h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "boarding",
+        "gate",
+        "khởi hành"
+      ],
+      "description": "Tổ chức boarding hiệu quả, giảm ùn tắc và tăng trải nghiệm hành khách."
+    },
+    {
+      "id": "course_023",
+      "title": "Dịch vụ hỗ trợ hành khách đặc biệt",
+      "category": "service",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cabin_crew",
+        "cskh"
+      ],
+      "duration": "6h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "special assistance",
+        "PRM",
+        "trợ giúp đặc biệt"
+      ],
+      "description": "Hướng dẫn hỗ trợ hành khách cần trợ giúp đặc biệt theo quy trình và chuẩn mực phục vụ."
+    },
+    {
+      "id": "course_024",
+      "title": "Văn hóa dịch vụ Vietnam Airlines",
+      "category": "service",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "service culture",
+        "văn hóa dịch vụ",
+        "brand"
+      ],
+      "description": "Hiểu và thể hiện nhất quán văn hóa dịch vụ trong mọi điểm chạm với khách hàng."
+    },
+    {
+      "id": "course_025",
+      "title": "Kỹ năng đồng cảm trong phục vụ",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "empathy",
+        "đồng cảm",
+        "customer care"
+      ],
+      "description": "Phát triển khả năng lắng nghe và đồng cảm để nâng cao chất lượng phục vụ."
+    },
+    {
+      "id": "course_026",
+      "title": "Service recovery cơ bản",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cskh",
+        "ground_staff",
+        "cabin_crew"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "service recovery",
+        "khôi phục dịch vụ",
+        "complaint"
+      ],
+      "description": "Kỹ năng xử lý sai sót dịch vụ và lấy lại niềm tin của hành khách."
+    },
+    {
+      "id": "course_027",
+      "title": "Thuyết minh và hướng dẫn hành khách rõ ràng",
+      "category": "service",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "cabin_crew",
+        "ground_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "announcement",
+        "guidance",
+        "thuyết minh"
+      ],
+      "description": "Cách đưa hướng dẫn ngắn gọn, dễ hiểu và nhất quán cho hành khách."
+    },
+    {
+      "id": "course_028",
+      "title": "Kỹ năng bán thêm dịch vụ",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "sales_staff",
+        "cskh",
+        "ground_staff"
+      ],
+      "duration": "5h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "upsell",
+        "cross-sell",
+        "dịch vụ bổ sung"
+      ],
+      "description": "Khai thác nhu cầu phù hợp để giới thiệu dịch vụ bổ sung một cách tinh tế."
+    },
+    {
+      "id": "course_029",
+      "title": "Kỹ năng làm việc trong môi trường đa văn hóa",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "cross-cultural",
+        "đa văn hóa",
+        "global service"
+      ],
+      "description": "Hiểu khác biệt văn hóa để giao tiếp và phục vụ hành khách quốc tế hiệu quả hơn."
+    },
+    {
+      "id": "course_030",
+      "title": "Dịch vụ nhất quán tại mọi điểm chạm",
+      "category": "service",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "customer journey",
+        "điểm chạm",
+        "consistency"
+      ],
+      "description": "Bảo đảm trải nghiệm thương hiệu đồng nhất từ đặt vé đến sau chuyến bay."
+    },
+    {
+      "id": "course_031",
+      "title": "Quy định nội bộ và tuân thủ",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "tuân thủ",
+        "compliance",
+        "quy định nội bộ"
+      ],
+      "description": "Giới thiệu các quy định nội bộ, chuẩn mực làm việc và trách nhiệm tuân thủ."
+    },
+    {
+      "id": "course_032",
+      "title": "Bảo mật dữ liệu cá nhân",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "privacy",
+        "dữ liệu cá nhân",
+        "PDPA"
+      ],
+      "description": "Nguyên tắc bảo vệ dữ liệu cá nhân của khách hàng và nhân viên trong quá trình làm việc."
+    },
+    {
+      "id": "course_033",
+      "title": "Chống hối lộ và xung đột lợi ích",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "anti-bribery",
+        "conflict of interest",
+        "đạo đức"
+      ],
+      "description": "Nhận biết các tình huống rủi ro và nguyên tắc ứng xử minh bạch."
+    },
+    {
+      "id": "course_034",
+      "title": "Tuân thủ quy trình khai thác",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cabin_crew",
+        "technical_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "SOP",
+        "quy trình",
+        "tuân thủ vận hành"
+      ],
+      "description": "Tuân thủ quy trình thao tác chuẩn để bảo đảm an toàn và chất lượng phục vụ."
+    },
+    {
+      "id": "course_035",
+      "title": "Quy tắc ứng xử nghề nghiệp",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "code of conduct",
+        "ứng xử",
+        "ethics"
+      ],
+      "description": "Chuẩn mực ứng xử nghề nghiệp, tinh thần trách nhiệm và văn hóa doanh nghiệp."
+    },
+    {
+      "id": "course_036",
+      "title": "Phòng chống quấy rối tại nơi làm việc",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "harassment",
+        "workplace respect",
+        "tôn trọng"
+      ],
+      "description": "Nhận biết, phòng ngừa và xử lý hành vi quấy rối tại nơi làm việc."
+    },
+    {
+      "id": "course_037",
+      "title": "Tuân thủ khi làm việc với nhà cung cấp",
+      "category": "compliance",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "procurement_staff",
+        "manager"
+      ],
+      "duration": "3h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "vendor compliance",
+        "procurement",
+        "nhà cung cấp"
+      ],
+      "description": "Nguyên tắc làm việc minh bạch, đầy đủ hồ sơ và kiểm soát rủi ro với nhà cung cấp."
+    },
+    {
+      "id": "course_038",
+      "title": "Kiểm soát tài liệu và bằng chứng tuân thủ",
+      "category": "compliance",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "documentation",
+        "audit trail",
+        "hồ sơ"
+      ],
+      "description": "Cách lưu trữ, cập nhật và cung cấp tài liệu phục vụ kiểm tra, đánh giá."
+    },
+    {
+      "id": "course_039",
+      "title": "Chuẩn bị cho kiểm tra nội bộ",
+      "category": "compliance",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager"
+      ],
+      "duration": "4h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "internal audit",
+        "kiểm tra nội bộ",
+        "audit"
+      ],
+      "description": "Hiểu cách chuẩn bị hồ sơ, bằng chứng và phối hợp khi có kiểm tra nội bộ."
+    },
+    {
+      "id": "course_040",
+      "title": "Nhận diện rủi ro tuân thủ trong dịch vụ",
+      "category": "compliance",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "cskh",
+        "sales_staff",
+        "ground_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "e-learning + quiz",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "compliance risk",
+        "dịch vụ",
+        "rủi ro tuân thủ"
+      ],
+      "description": "Xác định các điểm có thể phát sinh sai lệch tuân thủ trong quá trình phục vụ khách hàng."
+    },
+    {
+      "id": "course_041",
+      "title": "Hướng dẫn sử dụng LMS nội bộ",
+      "category": "system",
+      "type": "onboarding",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "LMS",
+        "learning management",
+        "học trực tuyến"
+      ],
+      "description": "Hướng dẫn tìm khóa học, đăng ký, học bài, làm bài kiểm tra và theo dõi tiến độ."
+    },
+    {
+      "id": "course_042",
+      "title": "Sử dụng hệ thống check-in",
+      "category": "system",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff"
+      ],
+      "duration": "5h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "check-in system",
+        "DCS",
+        "quầy thủ tục"
+      ],
+      "description": "Hướng dẫn thao tác cơ bản trên hệ thống check-in theo quy trình chuẩn."
+    },
+    {
+      "id": "course_043",
+      "title": "Sử dụng cổng thông tin nhân viên",
+      "category": "system",
+      "type": "onboarding",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "portal",
+        "employee portal",
+        "self-service"
+      ],
+      "description": "Sử dụng cổng thông tin nội bộ để tra cứu thông tin và thực hiện các tác vụ cơ bản."
+    },
+    {
+      "id": "course_044",
+      "title": "Tạo và nộp báo cáo trên hệ thống",
+      "category": "system",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "team_lead",
+        "manager",
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "reporting",
+        "biểu mẫu",
+        "workflow"
+      ],
+      "description": "Hướng dẫn tạo biểu mẫu, nộp báo cáo và theo dõi trạng thái xử lý."
+    },
+    {
+      "id": "course_045",
+      "title": "Quản lý lịch học và nhắc học",
+      "category": "system",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "learning schedule",
+        "reminder",
+        "calendar"
+      ],
+      "description": "Cách thiết lập lịch học, theo dõi hạn hoàn thành và sử dụng nhắc học hiệu quả."
+    },
+    {
+      "id": "course_046",
+      "title": "Sử dụng hệ thống phản hồi khách hàng",
+      "category": "system",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cskh",
+        "manager"
+      ],
+      "duration": "4h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "feedback system",
+        "CSKH",
+        "ticket"
+      ],
+      "description": "Quản lý phản hồi khách hàng, phân loại yêu cầu và theo dõi kết quả xử lý."
+    },
+    {
+      "id": "course_047",
+      "title": "Bảo mật tài khoản và xác thực đa lớp",
+      "category": "system",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "MFA",
+        "password",
+        "account security"
+      ],
+      "description": "Thiết lập bảo mật tài khoản an toàn và nhận biết rủi ro đánh cắp thông tin đăng nhập."
+    },
+    {
+      "id": "course_048",
+      "title": "Quy trình hỗ trợ IT nội bộ",
+      "category": "system",
+      "type": "onboarding",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "IT helpdesk",
+        "support ticket",
+        "hỗ trợ CNTT"
+      ],
+      "description": "Biết cách gửi yêu cầu hỗ trợ IT, theo dõi ticket và cung cấp thông tin cần thiết."
+    },
+    {
+      "id": "course_049",
+      "title": "Khai thác dashboard học tập",
+      "category": "system",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager",
+        "hr_training"
+      ],
+      "duration": "3h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "dashboard",
+        "analytics",
+        "learning progress"
+      ],
+      "description": "Đọc các chỉ số học tập, theo dõi tỷ lệ hoàn thành và phát hiện điểm cần hỗ trợ."
+    },
+    {
+      "id": "course_050",
+      "title": "Thực hành học trực tuyến hiệu quả",
+      "category": "system",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "e-learning",
+        "self-learning",
+        "microlearning"
+      ],
+      "description": "Kỹ năng học trực tuyến chủ động, ghi chú và ôn tập để tăng hiệu quả hoàn thành khóa học."
+    },
+    {
+      "id": "course_051",
+      "title": "Kỹ năng quản lý đội nhóm",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager"
+      ],
+      "duration": "8h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "leadership",
+        "team management",
+        "đội nhóm"
+      ],
+      "description": "Kỹ năng giao việc, tạo động lực và theo dõi hiệu quả của đội nhóm."
+    },
+    {
+      "id": "course_052",
+      "title": "Đánh giá hiệu suất nhân viên",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "manager"
+      ],
+      "duration": "6h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "performance",
+        "KPI",
+        "đánh giá"
+      ],
+      "description": "Thiết lập kỳ vọng, phản hồi và đánh giá hiệu suất dựa trên mục tiêu công việc."
+    },
+    {
+      "id": "course_053",
+      "title": "Coaching cho quản lý tuyến đầu",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager"
+      ],
+      "duration": "6h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "coaching",
+        "phát triển nhân viên",
+        "one-on-one"
+      ],
+      "description": "Kỹ thuật coaching để hỗ trợ nhân viên phát triển năng lực và giải quyết vấn đề."
+    },
+    {
+      "id": "course_054",
+      "title": "Lập kế hoạch nhân sự theo ca",
+      "category": "management",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "manager",
+        "team_lead"
+      ],
+      "duration": "5h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "rostering",
+        "shift planning",
+        "phân ca"
+      ],
+      "description": "Nguyên tắc lập lịch làm việc phù hợp nhu cầu vận hành và năng lực nhân sự."
+    },
+    {
+      "id": "course_055",
+      "title": "Quản lý thay đổi trong đơn vị",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "manager"
+      ],
+      "duration": "4h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "change management",
+        "thay đổi",
+        "chuyển đổi"
+      ],
+      "description": "Phương pháp truyền thông và triển khai thay đổi để giảm kháng cự trong đội ngũ."
+    },
+    {
+      "id": "course_056",
+      "title": "Kỹ năng phản hồi xây dựng",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "team_lead",
+        "manager"
+      ],
+      "duration": "3h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "feedback",
+        "difficult conversation",
+        "phản hồi"
+      ],
+      "description": "Cách đưa phản hồi rõ ràng, tôn trọng và định hướng phát triển."
+    },
+    {
+      "id": "course_057",
+      "title": "Ra quyết định dựa trên dữ liệu",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "manager",
+        "hr_training"
+      ],
+      "duration": "4h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "data-driven",
+        "decision making",
+        "analytics"
+      ],
+      "description": "Ứng dụng số liệu để đưa ra quyết định quản lý chính xác hơn."
+    },
+    {
+      "id": "course_058",
+      "title": "Quản lý hiệu quả cuộc họp",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "team_lead",
+        "manager"
+      ],
+      "duration": "3h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "meeting",
+        "facilitation",
+        "họp hiệu quả"
+      ],
+      "description": "Thiết kế và điều phối cuộc họp ngắn gọn, có mục tiêu và có hành động tiếp theo."
+    },
+    {
+      "id": "course_059",
+      "title": "Phỏng vấn và chọn người phù hợp",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "manager",
+        "hr_training"
+      ],
+      "duration": "5h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "interview",
+        "selection",
+        "tuyển dụng"
+      ],
+      "description": "Khung phỏng vấn hành vi và tiêu chí đánh giá ứng viên phù hợp với vị trí."
+    },
+    {
+      "id": "course_060",
+      "title": "Dẫn dắt đội ngũ dịch vụ tuyến đầu",
+      "category": "management",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "advanced",
+      "target_roles": [
+        "manager",
+        "team_lead"
+      ],
+      "duration": "6h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "frontline leadership",
+        "service team",
+        "ca trưởng"
+      ],
+      "description": "Nâng cao năng lực dẫn dắt đội ngũ trực tiếp phục vụ khách hàng trong môi trường áp lực cao."
+    },
+    {
+      "id": "course_061",
+      "title": "Tiếng Anh giao tiếp cơ bản",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "20h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "english basic",
+        "giao tiếp cơ bản",
+        "speaking"
+      ],
+      "description": "Xây dựng nền tảng giao tiếp tiếng Anh trong các tình huống công việc phổ biến."
+    },
+    {
+      "id": "course_062",
+      "title": "Tiếng Anh giao tiếp nâng cao",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "24h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "english advanced",
+        "fluency",
+        "giao tiếp nâng cao"
+      ],
+      "description": "Phát triển khả năng diễn đạt tự nhiên, mạch lạc và chuyên nghiệp hơn trong công việc."
+    },
+    {
+      "id": "course_063",
+      "title": "Ngữ pháp tiếng Anh ứng dụng trong công việc",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "18h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "grammar",
+        "email writing",
+        "business english"
+      ],
+      "description": "Củng cố ngữ pháp để sử dụng chính xác hơn trong nói và viết công việc."
+    },
+    {
+      "id": "course_064",
+      "title": "Từ vựng tiếng Anh cho nhân viên văn phòng",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "16h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "vocabulary",
+        "office english",
+        "workplace"
+      ],
+      "description": "Bổ sung từ vựng thiết yếu cho giao tiếp và công việc hằng ngày."
+    },
+    {
+      "id": "course_065",
+      "title": "Kỹ năng nghe tiếng Anh trong môi trường công việc",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "18h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "listening",
+        "workplace english",
+        "comprehension"
+      ],
+      "description": "Luyện nghe hội thoại, chỉ dẫn và trao đổi công việc bằng tiếng Anh."
+    },
+    {
+      "id": "course_066",
+      "title": "Kỹ năng nói tiếng Anh trong công việc",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "18h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "speaking",
+        "presentation",
+        "conversation"
+      ],
+      "description": "Thực hành phản xạ nói tiếng Anh trong bối cảnh công việc phổ biến."
+    },
+    {
+      "id": "course_067",
+      "title": "Kỹ năng đọc hiểu email và tài liệu tiếng Anh",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "16h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "reading",
+        "email",
+        "document"
+      ],
+      "description": "Tăng khả năng đọc hiểu email, hướng dẫn và tài liệu công việc bằng tiếng Anh."
+    },
+    {
+      "id": "course_068",
+      "title": "Viết email tiếng Anh chuyên nghiệp",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "12h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "email writing",
+        "business english",
+        "writing"
+      ],
+      "description": "Cách viết email tiếng Anh rõ ràng, lịch sự và đúng mục đích trong công việc."
+    },
+    {
+      "id": "course_069",
+      "title": "Tiếng Anh cho họp và trao đổi công việc",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager",
+        "all_staff"
+      ],
+      "duration": "14h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "meeting english",
+        "discussion",
+        "business communication"
+      ],
+      "description": "Ngôn ngữ hữu ích để tham gia họp, nêu ý kiến và theo dõi hành động sau họp."
+    },
+    {
+      "id": "course_070",
+      "title": "Tiếng Anh cho thuyết trình cơ bản",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "12h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "presentation",
+        "public speaking",
+        "english presentation"
+      ],
+      "description": "Trang bị cấu trúc và ngôn ngữ tiếng Anh cơ bản khi thuyết trình."
+    },
+    {
+      "id": "course_071",
+      "title": "Tiếng Anh cho dịch vụ khách hàng",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cskh",
+        "ground_staff",
+        "cabin_crew"
+      ],
+      "duration": "18h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "customer service english",
+        "service phrases",
+        "hospitality"
+      ],
+      "description": "Mẫu câu và kỹ năng tiếng Anh phục vụ hành khách trong các tình huống thường gặp."
+    },
+    {
+      "id": "course_072",
+      "title": "Tiếng Anh giao tiếp qua điện thoại",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cskh",
+        "sales_staff"
+      ],
+      "duration": "10h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "phone english",
+        "call handling",
+        "customer support"
+      ],
+      "description": "Cụm từ và kỹ năng trao đổi qua điện thoại với khách hàng quốc tế."
+    },
+    {
+      "id": "course_073",
+      "title": "Tiếng Anh cho đàm phán cơ bản",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "advanced",
+      "target_roles": [
+        "sales_staff",
+        "manager"
+      ],
+      "duration": "14h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "negotiation",
+        "business english",
+        "commercial"
+      ],
+      "description": "Ngôn ngữ và kỹ thuật đàm phán cơ bản trong bối cảnh thương mại và dịch vụ."
+    },
+    {
+      "id": "course_074",
+      "title": "Tiếng Anh cho báo cáo và cập nhật công việc",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "10h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "reporting",
+        "status update",
+        "work update"
+      ],
+      "description": "Cách trình bày tiến độ, vấn đề và đề xuất bằng tiếng Anh đơn giản, rõ ràng."
+    },
+    {
+      "id": "course_075",
+      "title": "Ôn luyện tiếng Anh nền tảng cho người mất gốc",
+      "category": "english_general",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "24h",
+      "delivery_format": "e-learning + live practice",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "foundation english",
+        "beginner",
+        "mất gốc"
+      ],
+      "description": "Lộ trình lấy lại nền tảng tiếng Anh từ vựng, ngữ pháp đến giao tiếp cơ bản."
+    },
+    {
+      "id": "course_076",
+      "title": "Aviation English cơ bản",
+      "category": "english_aviation",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": [
+        "cabin_crew",
+        "pilot"
+      ],
+      "duration": "30h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 70,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "aviation english",
+        "chuyên ngành hàng không",
+        "ICAO"
+      ],
+      "description": "Tiếng Anh nền tảng cho giao tiếp và thuật ngữ thường gặp trong môi trường hàng không."
+    },
+    {
+      "id": "course_077",
+      "title": "Aviation English nâng cao",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "advanced",
+      "target_roles": [
+        "cabin_crew",
+        "pilot"
+      ],
+      "duration": "40h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "aviation english advanced",
+        "aviation communication",
+        "ICAO"
+      ],
+      "description": "Nâng cao khả năng nghe hiểu, phản xạ và sử dụng thuật ngữ chuyên ngành hàng không."
+    },
+    {
+      "id": "course_078",
+      "title": "Tiếng Anh cho tiếp viên hàng không",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cabin_crew"
+      ],
+      "duration": "24h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "cabin crew english",
+        "inflight service",
+        "announcement"
+      ],
+      "description": "Ngôn ngữ cần thiết cho phục vụ trên chuyến bay và giao tiếp với hành khách quốc tế."
+    },
+    {
+      "id": "course_079",
+      "title": "Tiếng Anh cho nhân viên mặt đất",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff"
+      ],
+      "duration": "22h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "ground staff english",
+        "check-in english",
+        "airport service"
+      ],
+      "description": "Mẫu câu và tình huống tiếng Anh tại quầy, cửa khởi hành và khu vực sân bay."
+    },
+    {
+      "id": "course_080",
+      "title": "Tiếng Anh thông báo và hướng dẫn hành khách",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cabin_crew",
+        "ground_staff"
+      ],
+      "duration": "16h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "announcement english",
+        "passenger guidance",
+        "PA"
+      ],
+      "description": "Soạn và thực hành các mẫu thông báo, hướng dẫn hành khách bằng tiếng Anh."
+    },
+    {
+      "id": "course_081",
+      "title": "Tiếng Anh xử lý chuyến bay chậm huỷ",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cskh"
+      ],
+      "duration": "16h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "delay",
+        "cancellation",
+        "service recovery english"
+      ],
+      "description": "Ngôn ngữ cần dùng để thông báo, giải thích và hỗ trợ hành khách khi khai thác bất thường."
+    },
+    {
+      "id": "course_082",
+      "title": "Tiếng Anh cho an toàn và khẩn nguy",
+      "category": "english_aviation",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": [
+        "cabin_crew",
+        "pilot",
+        "ground_staff"
+      ],
+      "duration": "18h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 70,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": [
+        "emergency english",
+        "safety phraseology",
+        "khẩn nguy"
+      ],
+      "description": "Thuật ngữ và mẫu câu phục vụ tình huống an toàn, khẩn nguy và phối hợp tác nghiệp."
+    },
+    {
+      "id": "course_083",
+      "title": "Tiếng Anh cho hành lý thất lạc",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cskh"
+      ],
+      "duration": "12h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "lost baggage",
+        "baggage claim",
+        "irregularity"
+      ],
+      "description": "Mẫu câu và quy trình giao tiếp với hành khách khi phát sinh bất thường về hành lý."
+    },
+    {
+      "id": "course_084",
+      "title": "Luyện nghe hiểu tình huống sân bay quốc tế",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "18h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "airport listening",
+        "international airport",
+        "aviation context"
+      ],
+      "description": "Luyện nghe tình huống thực tế tại sân bay và môi trường phục vụ quốc tế."
+    },
+    {
+      "id": "course_085",
+      "title": "Ôn luyện ICAO phraseology căn bản",
+      "category": "english_aviation",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "advanced",
+      "target_roles": [
+        "pilot",
+        "technical_staff"
+      ],
+      "duration": "20h",
+      "delivery_format": "blended + speaking lab",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "ICAO phraseology",
+        "ATC",
+        "aviation radio"
+      ],
+      "description": "Ôn tập phraseology căn bản phục vụ giao tiếp trong bối cảnh khai thác hàng không."
+    },
+    {
+      "id": "course_086",
+      "title": "Kỹ năng làm việc nhóm",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "teamwork",
+        "collaboration",
+        "phối hợp"
+      ],
+      "description": "Kỹ năng phối hợp hiệu quả giữa các cá nhân và bộ phận để hoàn thành mục tiêu chung."
+    },
+    {
+      "id": "course_087",
+      "title": "Quản lý thời gian hiệu quả",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "time management",
+        "prioritization",
+        "năng suất"
+      ],
+      "description": "Cách ưu tiên công việc và quản lý thời gian trong môi trường nhiều đầu việc."
+    },
+    {
+      "id": "course_088",
+      "title": "Tư duy dịch vụ chủ động",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "service mindset",
+        "ownership",
+        "chủ động"
+      ],
+      "description": "Phát triển tư duy chủ động giải quyết vấn đề và phục vụ vượt mong đợi."
+    },
+    {
+      "id": "course_089",
+      "title": "Giải quyết vấn đề tại tuyến đầu",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "ground_staff",
+        "cabin_crew",
+        "cskh"
+      ],
+      "duration": "4h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "problem solving",
+        "frontline",
+        "decision"
+      ],
+      "description": "Khung xử lý nhanh các vấn đề thường gặp tại tuyến đầu phục vụ khách hàng."
+    },
+    {
+      "id": "course_090",
+      "title": "Kỹ năng giao tiếp nội bộ hiệu quả",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "internal communication",
+        "clarity",
+        "alignment"
+      ],
+      "description": "Truyền đạt rõ ràng, đúng đối tượng và giảm hiểu nhầm trong phối hợp nội bộ."
+    },
+    {
+      "id": "course_091",
+      "title": "Làm việc dưới áp lực cao",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "pressure",
+        "stress",
+        "resilience"
+      ],
+      "description": "Cách duy trì bình tĩnh, hiệu quả và chất lượng công việc trong môi trường áp lực."
+    },
+    {
+      "id": "course_092",
+      "title": "Tư duy cải tiến liên tục",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "continuous improvement",
+        "kaizen",
+        "cải tiến"
+      ],
+      "description": "Khuyến khích thói quen quan sát, đề xuất và thực thi cải tiến nhỏ hằng ngày."
+    },
+    {
+      "id": "course_093",
+      "title": "Kỹ năng học tập chủ động",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "2h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "self-learning",
+        "growth mindset",
+        "học tập"
+      ],
+      "description": "Cách đặt mục tiêu học tập, ghi chú, ôn tập và ứng dụng kiến thức sau đào tạo."
+    },
+    {
+      "id": "course_094",
+      "title": "Quản lý cảm xúc trong phục vụ",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "cabin_crew",
+        "cskh",
+        "ground_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "emotional regulation",
+        "customer interaction",
+        "dịch vụ"
+      ],
+      "description": "Điều tiết cảm xúc để duy trì sự chuyên nghiệp trong các tình huống phục vụ khó khăn."
+    },
+    {
+      "id": "course_095",
+      "title": "Tư duy lấy khách hàng làm trung tâm",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "customer-centric",
+        "CX",
+        "trải nghiệm"
+      ],
+      "description": "Hiểu nhu cầu hành khách và ra quyết định theo hướng nâng cao trải nghiệm."
+    },
+    {
+      "id": "course_096",
+      "title": "Kỹ năng thích nghi với thay đổi",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "adaptability",
+        "change",
+        "linh hoạt"
+      ],
+      "description": "Phát triển khả năng thích nghi với thay đổi về quy trình, công nghệ và môi trường làm việc."
+    },
+    {
+      "id": "course_097",
+      "title": "Kỹ năng trình bày ngắn gọn",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "concise communication",
+        "briefing",
+        "trình bày"
+      ],
+      "description": "Trình bày thông tin ngắn gọn, rõ ý và có trọng tâm trong bối cảnh công việc."
+    },
+    {
+      "id": "course_098",
+      "title": "Kỹ năng coaching đồng nghiệp",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "peer coaching",
+        "mentoring",
+        "hỗ trợ đồng nghiệp"
+      ],
+      "description": "Cách hỗ trợ đồng nghiệp học hỏi, nâng năng lực và chia sẻ kinh nghiệm hiệu quả."
+    },
+    {
+      "id": "course_099",
+      "title": "Kỹ năng xử lý xung đột nội bộ",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": [
+        "team_lead",
+        "manager",
+        "all_staff"
+      ],
+      "duration": "4h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "conflict resolution",
+        "team dynamics",
+        "xung đột"
+      ],
+      "description": "Nhận diện nguyên nhân xung đột và giải quyết theo hướng hợp tác, tôn trọng."
+    },
+    {
+      "id": "course_100",
+      "title": "Tư duy số và làm việc hiện đại",
+      "category": "soft_skill",
+      "type": "recommended",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": [
+        "all_staff"
+      ],
+      "duration": "3h",
+      "delivery_format": "microlearning + workshop",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": [
+        "digital mindset",
+        "modern work",
+        "efficiency"
+      ],
+      "description": "Khuyến khích khai thác công cụ số để học tập, phối hợp và nâng cao hiệu suất công việc."
+    }
+  ],
+  "role_learning_paths": [
+    {
+      "role": "new_hire",
+      "label": "Nhân viên mới",
+      "recommended_courses": [
+        "course_001",
+        "course_031",
+        "course_041",
+        "course_061",
+        "course_093"
+      ],
+      "notes": "Nhân viên mới nên học LMS, an toàn, tuân thủ, nền tảng tiếng Anh và kỹ năng học tập chủ động trước."
+    },
+    {
+      "role": "ground_staff",
+      "label": "Nhân viên mặt đất",
+      "recommended_courses": [
+        "course_006",
+        "course_021",
+        "course_022",
+        "course_079",
+        "course_020"
+      ],
+      "notes": "Nhân viên mặt đất ưu tiên an toàn sân đỗ, hệ thống check-in, kỹ năng phục vụ và tiếng Anh tình huống sân bay."
+    },
+    {
+      "role": "cabin_crew",
+      "label": "Tiếp viên",
+      "recommended_courses": [
+        "course_007",
+        "course_016",
+        "course_078",
+        "course_080",
+        "course_082"
+      ],
+      "notes": "Tiếp viên nên kết hợp đào tạo an toàn, dịch vụ 5 sao và tiếng Anh chuyên ngành phục vụ trên chuyến bay."
+    },
+    {
+      "role": "cskh",
+      "label": "Chăm sóc khách hàng",
+      "recommended_courses": [
+        "course_017",
+        "course_018",
+        "course_071",
+        "course_081",
+        "course_094"
+      ],
+      "notes": "CSKH cần kỹ năng xử lý khiếu nại, service recovery và tiếng Anh xử lý tình huống bất thường."
+    },
+    {
+      "role": "manager",
+      "label": "Quản lý",
+      "recommended_courses": [
+        "course_051",
+        "course_052",
+        "course_057",
+        "course_039",
+        "course_069"
+      ],
+      "notes": "Quản lý nên theo học nhóm khóa về dẫn dắt đội ngũ, đánh giá hiệu suất, dữ liệu và họp bằng tiếng Anh."
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq_new_hire",
+      "question": "Tôi là nhân viên mới, nên học gì trước?",
+      "answer": "Bạn nên bắt đầu với Hướng dẫn sử dụng LMS nội bộ, An toàn Hàng không cơ bản, Quy định nội bộ và tuân thủ, Tiếng Anh giao tiếp cơ bản và Kỹ năng học tập chủ động."
+    },
+    {
+      "id": "faq_register",
+      "question": "Làm sao để đăng ký khóa học?",
+      "answer": "Bạn đăng nhập LMS, tìm khóa học, mở chi tiết khóa và nhấn đăng ký. Một số khóa sẽ cần phê duyệt từ quản lý hoặc bộ phận đào tạo."
+    },
+    {
+      "id": "faq_fail_test",
+      "question": "Nếu tôi không pass bài test thì sao?",
+      "answer": "Bạn được phép thi lại tối đa 2 lần trong hệ thống demo. Nên xem lại nội dung trước khi thi lại."
+    },
+    {
+      "id": "faq_certificate",
+      "question": "Chứng chỉ sắp hết hạn thì phải làm gì?",
+      "answer": "Bạn nên kiểm tra thời hạn trong hồ sơ học tập, tìm khóa refresher hoặc tái đào tạo tương ứng và hoàn thành trước ngày hết hạn."
+    },
+    {
+      "id": "faq_ground_staff",
+      "question": "Nhân viên mặt đất nên học những khóa nào?",
+      "answer": "Bạn nên ưu tiên An toàn sân đỗ cho nhân viên mặt đất, Sử dụng hệ thống check-in, Dịch vụ quầy check-in chuyên nghiệp và Tiếng Anh cho nhân viên mặt đất."
+    },
+    {
+      "id": "faq_cabin_crew",
+      "question": "Tiếp viên nên học những khóa nào?",
+      "answer": "Bạn nên ưu tiên An toàn khoang khách cho tiếp viên, Dịch vụ khách hàng tiêu chuẩn 5 sao, Tiếng Anh cho tiếp viên hàng không và Tiếng Anh cho an toàn và khẩn nguy."
+    },
+    {
+      "id": "faq_english",
+      "question": "Có các khóa học tiếng Anh nào trong hệ thống?",
+      "answer": "Hệ thống demo có cả nhóm Tiếng Anh chung như giao tiếp, email, họp và nhóm Tiếng Anh hàng không như Aviation English, tiếng Anh cho tiếp viên, nhân viên mặt đất, thông báo hành khách và khẩn nguy."
+    },
+    {
+      "id": "faq_scope",
+      "question": "Nếu chatbot không có thông tin thì sao?",
+      "answer": "Chatbot sẽ nói rõ hiện chưa có thông tin trong hệ thống demo và gợi ý bạn liên hệ bộ phận đào tạo hoặc kiểm tra nguồn nội bộ."
+    }
+  ],
+  "fallback_rules": {
+    "when_unknown": "Hiện tại trong hệ thống demo chưa có thông tin đó. Bạn có thể kiểm tra thông báo nội bộ hoặc liên hệ bộ phận đào tạo để có thông tin chính xác hơn.",
+    "when_ambiguous": "Bạn có thể cho tôi biết thêm vị trí công việc hoặc nhóm khóa học bạn đang quan tâm để tôi gợi ý chính xác hơn.",
+    "when_out_of_scope": "Tôi hiện chỉ hỗ trợ trong phạm vi học tập và đào tạo nội bộ."
+  },
+  "suggested_questions": [
+    "Tôi là nhân viên mới, tôi nên học gì trước?",
+    "Làm sao để đăng ký khóa học?",
+    "Tiếp viên nên học những khóa nào?",
+    "Nhân viên mặt đất cần học gì?",
+    "Có những khóa tiếng Anh nào trong hệ thống?",
+    "Nếu tôi không pass bài test thì sao?",
+    "Chứng chỉ sắp hết hạn thì phải làm gì?"
   ]
 }

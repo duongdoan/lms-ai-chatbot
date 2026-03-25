@@ -1,5 +1,6 @@
 import { openai } from '@/lib/openai';
 import { chatbotConfig } from '@/lib/chatbot-config';
+import { buildUserContextPrompt } from '@/lib/user-context';
 
 export const runtime = 'nodejs';
 
@@ -17,6 +18,10 @@ export async function POST(req: Request) {
         {
           role: 'system',
           content: [{ type: 'input_text', text: chatbotConfig.systemPrompt }],
+        },
+        {
+          role: 'system',
+          content: [{ type: 'input_text', text: buildUserContextPrompt() }],
         },
         {
           role: 'user',
