@@ -72,7 +72,7 @@ export default function HomePage() {
   }
 
   return (
-    <>
+    <div className="h-dvh max-h-dvh overflow-hidden">
       {/* ── Header: fixed top ── */}
       <header className="fixed inset-x-0 top-0 z-20 border-b border-viettel-border bg-viettel shadow-[0_1px_0_rgba(0,0,0,0.06)]">
         <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3.5">
@@ -168,6 +168,6 @@ export default function HomePage() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
