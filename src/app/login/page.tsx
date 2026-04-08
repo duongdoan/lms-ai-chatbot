@@ -43,10 +43,10 @@ export default function LoginPage() {
         {/* Logo / Brand */}
         <div className="mb-8 text-center">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-viettel text-xl font-bold text-white shadow-lg shadow-viettel/25">
-            V
+            L
           </div>
           <h1 className="text-xl font-semibold tracking-tight text-foreground">
-            VNA Learning Assistant
+            Trợ lý học tập nội bộ
           </h1>
           <p className="mt-1 text-sm text-neutral-500">
             Đăng nhập để sử dụng trợ lý học tập
@@ -108,7 +108,7 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-6 text-center text-xs text-neutral-400">
-          Hệ thống đào tạo nội bộ — Vietnam Airlines
+          Hệ thống đào tạo nội bộ
         </p>
       </div>
     </div>
