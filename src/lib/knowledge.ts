@@ -1,9 +1,17 @@
-import knowledgeData from '@/data/knowledge.json';
+import {
+  getEnvDefaultProfile,
+  loadKnowledgeForProfile,
+  type KnowledgeDataset,
+} from '@/lib/lms-data';
 
-export type KnowledgeDataset = typeof knowledgeData;
+export type { KnowledgeDataset };
 
-/** Dữ liệu knowledge từ `src/data/knowledge.json`. */
-export const knowledge: KnowledgeDataset = knowledgeData;
+/** Knowledge theo profile (mặc định env `LMS_DATA_PROFILE`). */
+export function getKnowledge(
+  profile: string = getEnvDefaultProfile(),
+): KnowledgeDataset {
+  return loadKnowledgeForProfile(profile);
+}
 
 function formatAssistant(a: KnowledgeDataset['assistant']): string {
   return [
@@ -93,7 +101,7 @@ function formatSuggested(questions: KnowledgeDataset['suggested_questions']): st
  * Chuyển toàn bộ knowledge JSON thành văn bản thuần cho system prompt.
  */
 export function formatKnowledgeForPrompt(
-  data: KnowledgeDataset = knowledge,
+  data: KnowledgeDataset = loadKnowledgeForProfile(getEnvDefaultProfile()),
 ): string {
   return `
 Thông tin trợ lý

@@ -1,6 +1,11 @@
+import { cookies } from 'next/headers';
 import { openai } from '@/lib/openai';
-import { chatbotConfig } from '@/lib/chatbot-config';
+import { buildChatbotSystemPrompt } from '@/lib/chatbot-config';
 import { buildUserContextPrompt } from '@/lib/user-context';
+import {
+  DATA_PROFILE_COOKIE,
+  resolveDataProfileFromCookie,
+} from '@/lib/lms-data';
 
 export const runtime = 'nodejs';
 
@@ -8,6 +13,11 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const messages = Array.isArray(body?.messages) ? body.messages : [];
+
+    const jar = await cookies();
+    const profile = resolveDataProfileFromCookie(
+      jar.get(DATA_PROFILE_COOKIE)?.value,
+    );
 
     const lastUserMessage =
       [...messages].reverse().find((m) => m?.role === 'user')?.content || '';
@@ -17,11 +27,11 @@ export async function POST(req: Request) {
       input: [
         {
           role: 'system',
-          content: [{ type: 'input_text', text: chatbotConfig.systemPrompt }],
+          content: [{ type: 'input_text', text: buildChatbotSystemPrompt(profile) }],
         },
         {
           role: 'system',
-          content: [{ type: 'input_text', text: buildUserContextPrompt() }],
+          content: [{ type: 'input_text', text: buildUserContextPrompt(profile) }],
         },
         {
           role: 'user',

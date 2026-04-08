@@ -1,0 +1,42 @@
+[
+  {
+    "id": "legal_compliance",
+    "name": "Pháp lý & tuân thủ",
+    "description": "Luật KDBH, AML, bảo vệ dữ liệu, đạo đức nghề nghiệp."
+  },
+  {
+    "id": "product",
+    "name": "Sản phẩm bảo hiểm",
+    "description": "Các nhóm sản phẩm ô tô, con người, tài sản và nghiệp vụ."
+  },
+  {
+    "id": "claims",
+    "name": "Bồi thường",
+    "description": "Tiếp nhận hồ sơ, thẩm định, giải quyết quyền lợi và phòng chống gian lận."
+  },
+  {
+    "id": "underwriting",
+    "name": "Thẩm định & rủi ro",
+    "description": "Đánh giá rủi ro, điều khoản loại trừ, giới hạn trách nhiệm."
+  },
+  {
+    "id": "sales",
+    "name": "Kinh doanh & tư vấn",
+    "description": "Kỹ năng tư vấn, chốt sale, kênh đại lý và kênh trực tiếp."
+  },
+  {
+    "id": "customer_service",
+    "name": "Chăm sóc khách hàng",
+    "description": "CSKH, xử lý khiếu nại và trải nghiệm sau bán."
+  },
+  {
+    "id": "system",
+    "name": "Hệ thống & công cụ",
+    "description": "LMS, core, CRM và quy trình số hóa."
+  },
+  {
+    "id": "soft_skill",
+    "name": "Kỹ năng mềm",
+    "description": "Giao tiếp, thuyết trình, tiếng Anh chuyên ngành."
+  }
+]

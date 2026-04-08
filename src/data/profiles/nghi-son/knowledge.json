@@ -1,0 +1,612 @@
+{
+  "assistant": {
+    "name": "NSRP Learning Assistant",
+    "organization": "Công ty Lọc hóa dầu Nghi Sơn (NSRP)",
+    "domain": "Đào tạo nội bộ — vận hành lọc hóa dầu, an toàn quy trình, HSE, bảo trì và tuân thủ",
+    "language": "vi",
+    "description": "Trợ lý học tập nội bộ hỗ trợ CBCNV và nhà thầu tại khu liên hợp tra cứu khóa học, lộ trình theo vị trí, quy trình đăng ký LMS, điểm đạt, chứng chỉ bắt buộc (hot work, không gian hạn chế, an toàn hóa chất) và câu hỏi thường gặp trong môi trường lọc hóa dầu — dữ liệu demo."
+  },
+  "policies": [
+    {
+      "id": "nsrp_policy_mandatory_hse",
+      "title": "Đào tạo HSE & an toàn quy trình bắt buộc",
+      "content": "Các khóa về an toàn cơ bản site, PPE, cảnh báo cháy nổ/hóa chất, phản ứng khẩn cấp và giới thiệu quy trình thường là bắt buộc trước khi vào khu vực sản xuất hoặc theo chu kỳ tái đào tạo."
+    },
+    {
+      "id": "nsrp_policy_permit",
+      "title": "Giấy phép công việc (PTW)",
+      "content": "Hot work, vào không gian hạn chế, đào/đục, công việc trên cao và tách lắp có áp lực chỉ được thực hiện khi có giấy phép hợp lệ và người thực hiện đã đủ điều kiện đào tạo theo quy định nội bộ demo."
+    },
+    {
+      "id": "nsrp_policy_pass",
+      "title": "Điểm đạt và đánh giá",
+      "content": "Khóa có kiểm tra: điểm đạt mặc định từ 80 trừ khi khóa có quy định riêng. Một số khóa kỹ năng mềm hoặc nhận thức chỉ yêu cầu hoàn thành module và xác nhận cam kết."
+    },
+    {
+      "id": "nsrp_policy_retake",
+      "title": "Thi lại",
+      "content": "Được phép thi lại tối đa 2 lần với các khóa có bài kiểm tra; nên xem lại SOP và tài liệu HSE trước khi thi lại."
+    },
+    {
+      "id": "nsrp_policy_completion",
+      "title": "Hoàn thành khóa học",
+      "content": "Hoàn thành khi học đủ module bắt buộc, đạt bài kiểm tra (nếu có) và ký nhận nội dung cam kết tuân thủ nếu khóa yêu cầu."
+    },
+    {
+      "id": "nsrp_policy_approval",
+      "title": "Phê duyệt học tập",
+      "content": "Khóa thực hành hiện trường, mô phỏng panel, khóa dành cho quản lý hoặc khóa tập trung có chi phí có thể cần phê duyệt từ quản lý trực tiếp hoặc Phòng Đào tạo / HSE."
+    },
+    {
+      "id": "nsrp_policy_certificate",
+      "title": "Hiệu lực chứng chỉ",
+      "content": "Một số chứng chỉ HSE và giấy phép công việc có chu kỳ 12–24 tháng tùy khóa; khóa cập nhật quy trình vận hành có thể theo quý. Theo dõi nhắc hạn trên LMS."
+    },
+    {
+      "id": "nsrp_policy_contractor",
+      "title": "Nhà thầu và người mới vào site",
+      "content": "Nhà thầu và khách đào tạo phải hoàn thành khóa induction site và các khóa bắt buộc theo hợp đồng trước khi làm việc trong ranh giới nhà máy (trong phạm vi demo)."
+    },
+    {
+      "id": "nsrp_policy_scope",
+      "title": "Giới hạn dữ liệu demo",
+      "content": "Nếu câu hỏi vượt ngoài knowledge hiện có, chatbot phải nói rõ chưa có thông tin trong hệ thống demo và không tự suy diễn quy định pháp lý, thông số vận hành thực tế hay SOP chi tiết."
+    }
+  ],
+  "processes": [
+    {
+      "id": "nsrp_process_register",
+      "title": "Đăng ký khóa học trên LMS",
+      "steps": [
+        "Đăng nhập LMS nội bộ NSRP",
+        "Chọn lộ trình theo vị trí (vận hành, bảo trì, HSE…) hoặc tìm khóa theo từ khóa",
+        "Đọc điều kiện tiên quyết và thời lượng",
+        "Nhấn đăng ký; chờ phê duyệt nếu khóa yêu cầu",
+        "Bắt đầu học khi trạng thái là Đã duyệt hoặc Đang học"
+      ]
+    },
+    {
+      "id": "nsrp_process_complete",
+      "title": "Hoàn thành khóa học",
+      "steps": [
+        "Hoàn thành toàn bộ nội dung và bài tập bắt buộc",
+        "Làm bài kiểm tra hoặc đánh giá cuối khóa nếu có",
+        "Đạt điểm tối thiểu theo khóa",
+        "Hệ thống ghi nhận hoàn thành và cập nhật hồ sơ năng lực / chứng chỉ"
+      ]
+    },
+    {
+      "id": "nsrp_process_retake",
+      "title": "Thi lại",
+      "steps": [
+        "Ôn tập theo đề cương và SOP liên quan",
+        "Vào lại phần kiểm tra trên LMS",
+        "Sử dụng lượt thi lại trong giới hạn cho phép",
+        "Nếu chưa đạt, liên hệ Phòng Đào tạo hoặc quản lý trực tiếp"
+      ]
+    },
+    {
+      "id": "nsrp_process_renewal",
+      "title": "Tái đào tạo / gia hạn chứng chỉ",
+      "steps": [
+        "Kiểm tra mục Chứng chỉ & hạn trên LMS",
+        "Đăng ký khóa refresher hoặc khóa cập nhật quy định tương ứng",
+        "Hoàn thành trước ngày hết hạn để duy trì quyền làm việc / ký giấy phép công việc"
+      ]
+    }
+  ],
+  "course_categories": [
+    {
+      "id": "safety_process",
+      "name": "An toàn quy trình & hiện trường",
+      "description": "PPE, hot work, không gian hạn chế, hóa chất, chữa cháy, ứng phó sự cố."
+    },
+    {
+      "id": "environmental",
+      "name": "Môi trường",
+      "description": "Quản lý chất thải, xả thải, giám sát môi trường và báo cáo tuân thủ."
+    },
+    {
+      "id": "technical_process",
+      "name": "Kỹ thuật & vận hành",
+      "description": "Nguyên lý lọc dầu, vận hành ổn định, startup/shutdown an toàn, tiện ích."
+    },
+    {
+      "id": "maintenance",
+      "name": "Bảo trì & độ tin cậy",
+      "description": "Bảo dưỡng thiết bị quay, tĩnh, van, lò, trao đổi nhiệt; CMMS."
+    },
+    {
+      "id": "quality_lab",
+      "name": "Chất lượng & phòng lab",
+      "description": "Lấy mẫu, phân tích sản phẩm trung gian/thành phẩm, ISO trong lab."
+    },
+    {
+      "id": "logistics",
+      "name": "Kho & logistics",
+      "description": "Tiếp nhận hóa chất/dầu, xếp dỡ, xe tải và an toàn kho."
+    },
+    {
+      "id": "system",
+      "name": "Hệ thống & LMS",
+      "description": "LMS, DCS giới thiệu, quy trình số và quản lý tài liệu."
+    },
+    {
+      "id": "compliance",
+      "name": "Tuân thủ & pháp lý",
+      "description": "Khung pháp lý liên quan ngành, đạo đức nghề nghiệp, bảo mật thông tin."
+    },
+    {
+      "id": "soft_skill",
+      "name": "Kỹ năng mềm",
+      "description": "Giao tiếp ca làm việc, handover, họp an toàn và làm việc nhóm."
+    },
+    {
+      "id": "leadership",
+      "name": "Quản lý & lãnh đạo",
+      "description": "Giám sát an toàn, permit to work cho người ký phê duyệt, dẫn dắt ca trực."
+    }
+  ],
+  "courses": [
+    {
+      "id": "nsrp_c001",
+      "title": "Induction site & văn hóa an toàn NSRP",
+      "category": "safety_process",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["all_staff", "new_hire", "contractor_staff"],
+      "duration": "4h",
+      "delivery_format": "e-learning + buổi site",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": ["induction", "site rules", "PPE", "NSRP"],
+      "description": "Ranh giới nhà máy, kênh báo cáo sự cố, PPE tối thiểu và hành vi an toàn kỳ vọng tại khu liên hợp (demo)."
+    },
+    {
+      "id": "nsrp_c002",
+      "title": "Nhận biết hóa chất & SDS cơ bản",
+      "category": "safety_process",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["all_staff", "new_hire", "process_operator", "maintenance"],
+      "duration": "3h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001"],
+      "keywords": ["SDS", "GHS", "hóa chất", "MSDS"],
+      "description": "Đọc nhãn, biểu tượng GHS, tra cứu SDS và xử lý ban đầu khi phát hiện rò rỉ nhỏ (kịch bản demo)."
+    },
+    {
+      "id": "nsrp_c003",
+      "title": "Hot work & công việc lửa hàn",
+      "category": "safety_process",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": ["maintenance", "contractor_staff", "hse"],
+      "duration": "6h",
+      "delivery_format": "blended + thực hành",
+      "requires_approval": true,
+      "pass_score": 85,
+      "certificate_validity": "24 tháng",
+      "prerequisites": ["nsrp_c001", "nsrp_c002"],
+      "keywords": ["hot work", "PTW", "hàn", "lửa"],
+      "description": "Điều kiện cấp giấy phép, giám sát lửa, biện pháp phòng cháy và chấm dứt công việc an toàn."
+    },
+    {
+      "id": "nsrp_c004",
+      "title": "Làm việc trong không gian hạn chế",
+      "category": "safety_process",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": ["maintenance", "process_operator", "contractor_staff"],
+      "duration": "8h",
+      "delivery_format": "blended",
+      "requires_approval": true,
+      "pass_score": 85,
+      "certificate_validity": "24 tháng",
+      "prerequisites": ["nsrp_c001", "nsrp_c002"],
+      "keywords": ["confined space", "khí độc", "thông gió"],
+      "description": "Đánh giá không gian, không khí, người standby và cứu hộ — theo kịch bản huấn luyện nội bộ."
+    },
+    {
+      "id": "nsrp_c005",
+      "title": "Vận hành ổn định & chuyển đổi trạng thái an toàn",
+      "category": "technical_process",
+      "type": "role_based",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": ["process_operator", "engineer"],
+      "duration": "16h",
+      "delivery_format": "mô phỏng + workshop",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001", "nsrp_c002"],
+      "keywords": ["startup", "shutdown", "DCS", "line-up"],
+      "description": "Nguyên tắc line-up, tránh xung đột năng lượng, giao ca và ghi nhật ký vận hành (demo)."
+    },
+    {
+      "id": "nsrp_c006",
+      "title": "Ứng phó khẩn cấp & chữa cháy công nghiệp",
+      "category": "safety_process",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["all_staff", "new_hire"],
+      "duration": "5h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001"],
+      "keywords": ["ER", "chữa cháy", "báo động", "sơ tán"],
+      "description": "Báo động, sơ tán có kiểm soát, phương tiện chữa cháy phù hợp và vai trò trong đội ứng phó."
+    },
+    {
+      "id": "nsrp_c007",
+      "title": "Bảo trì thiết bị quay & an toàn cô lập (LOTO)",
+      "category": "maintenance",
+      "type": "role_based",
+      "mandatory": true,
+      "level": "intermediate",
+      "target_roles": ["maintenance", "contractor_staff"],
+      "duration": "10h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 85,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001", "nsrp_c003"],
+      "keywords": ["LOTO", "cô lập", "bơm", "nén"],
+      "description": "Trình tự khóa/tag, xác minh zero energy và phối hợp với vận hành trước khi bàn giao thiết bị."
+    },
+    {
+      "id": "nsrp_c008",
+      "title": "Giám sát HSE & kiểm tra hiện trường",
+      "category": "safety_process",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": ["hse", "manager", "engineer"],
+      "duration": "6h",
+      "delivery_format": "case study",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001"],
+      "keywords": ["HSE walk", "observation", "JSA"],
+      "description": "Quan sát hành vi an toàn, ghi nhận và đóng vòng cải tiến với nhà thầu và các ca vận hành."
+    },
+    {
+      "id": "nsrp_c009",
+      "title": "Lấy mẫu & phân tích cơ bản trong lab vận hành",
+      "category": "quality_lab",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": ["lab_qc", "process_operator"],
+      "duration": "8h",
+      "delivery_format": "lab demo",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001", "nsrp_c002"],
+      "keywords": ["lấy mẫu", "ASTM", "QC"],
+      "description": "An toàn lab, chuỗi mẫu, tra cứu spec sản phẩm và báo cáo kết quả bất thường."
+    },
+    {
+      "id": "nsrp_c010",
+      "title": "An toàn kho, tiếp nhận xe bồn & xếp dỡ hóa chất",
+      "category": "logistics",
+      "type": "role_based",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["logistics", "contractor_staff"],
+      "duration": "5h",
+      "delivery_format": "blended",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001", "nsrp_c002"],
+      "keywords": ["tank truck", "chống tĩnh điện", "kho"],
+      "description": "Kiểm tra xe, nối mềm, checklist tiếp nhận và ứng phó sự cố nhỏ tại khu vực tải dỡ (demo)."
+    },
+    {
+      "id": "nsrp_c011",
+      "title": "Môi trường: xả thải, khí thải & báo cáo nội bộ",
+      "category": "environmental",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": ["hse", "engineer", "process_operator"],
+      "duration": "6h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c001"],
+      "keywords": ["xả thải", "khí thải", "môi trường"],
+      "description": "Giới hạn vận hành liên quan môi trường, kênh báo cáo và phối hợp với phòng ban chức năng."
+    },
+    {
+      "id": "nsrp_c012",
+      "title": "Làm quen LMS, SOP và quản lý phiên bản tài liệu",
+      "category": "system",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["all_staff", "new_hire"],
+      "duration": "2h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": [],
+      "keywords": ["LMS", "SOP", "document control"],
+      "description": "Tìm kiếm SOP/MOC, đăng ký khóa và theo dõi chứng chỉ cá nhân trên LMS."
+    },
+    {
+      "id": "nsrp_c013",
+      "title": "Handover ca & giao tiếp trong sự cố (brief)",
+      "category": "soft_skill",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "basic",
+      "target_roles": ["process_operator", "maintenance", "manager"],
+      "duration": "4h",
+      "delivery_format": "role-play",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "",
+      "prerequisites": ["nsrp_c001"],
+      "keywords": ["handover", "SBAR", "giao ca"],
+      "description": "Cấu trúc thông tin khi giao nhận ca và khi báo cáo nhanh trong tình huống bất thường."
+    },
+    {
+      "id": "nsrp_c014",
+      "title": "Quản lý nhà thầu đồng thời & SIMOPS cơ bản",
+      "category": "leadership",
+      "type": "role_based",
+      "mandatory": false,
+      "level": "intermediate",
+      "target_roles": ["manager", "hse", "engineer"],
+      "duration": "5h",
+      "delivery_format": "workshop",
+      "requires_approval": true,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": ["nsrp_c008"],
+      "keywords": ["SIMOPS", "nhà thầu", "phối hợp"],
+      "description": "Phân vùng công việc, họp trước ca và kiểm soát xung đột hoạt động giữa các bên (demo)."
+    },
+    {
+      "id": "nsrp_c015",
+      "title": "Bảo mật thông tin & dữ liệu vận hành",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["all_staff"],
+      "duration": "3h",
+      "delivery_format": "e-learning",
+      "requires_approval": false,
+      "pass_score": 80,
+      "certificate_validity": "12 tháng",
+      "prerequisites": [],
+      "keywords": ["bảo mật", "dữ liệu", "PDPA"],
+      "description": "Phân loại thông tin, chia sẻ tài liệu nội bộ và hành vi an toàn thông tin trên mạng công ty."
+    },
+    {
+      "id": "nsrp_c016",
+      "title": "Cập nhật quy định & sự kiện học tập định kỳ",
+      "category": "compliance",
+      "type": "mandatory",
+      "mandatory": true,
+      "level": "basic",
+      "target_roles": ["all_staff"],
+      "duration": "2h",
+      "delivery_format": "microlearning",
+      "requires_approval": false,
+      "pass_score": 0,
+      "certificate_validity": "3 tháng",
+      "prerequisites": [],
+      "keywords": ["cập nhật", "newsletter", "tuân thủ"],
+      "description": "Bản tin quý về thay đổi nội bộ, bài học sự cố ngành và nhắc tái đào tạo (demo)."
+    }
+  ],
+  "role_learning_paths": [
+    {
+      "role": "new_hire",
+      "label": "Nhân viên mới",
+      "recommended_courses": [
+        "nsrp_c001",
+        "nsrp_c012",
+        "nsrp_c002",
+        "nsrp_c006",
+        "nsrp_c015",
+        "nsrp_c016"
+      ],
+      "notes": "Ưu tiên induction, LMS, hóa chất cơ bản, ứng phó khẩn cấp và bảo mật trước khi vào khu vực được phân công."
+    },
+    {
+      "role": "process_operator",
+      "label": "Vận hành xưởng",
+      "recommended_courses": [
+        "nsrp_c005",
+        "nsrp_c013",
+        "nsrp_c011",
+        "nsrp_c009",
+        "nsrp_c016"
+      ],
+      "notes": "Trọng tâm vận hành ổn định, handover, môi trường vận hành và lấy mẫu nếu có nhiệm vụ liên quan."
+    },
+    {
+      "role": "maintenance",
+      "label": "Bảo trì",
+      "recommended_courses": [
+        "nsrp_c003",
+        "nsrp_c004",
+        "nsrp_c007",
+        "nsrp_c013",
+        "nsrp_c016"
+      ],
+      "notes": "Hot work, không gian hạn chế, LOTO và phối hợp giao ca với vận hành."
+    },
+    {
+      "role": "hse",
+      "label": "HSE / An toàn môi trường",
+      "recommended_courses": [
+        "nsrp_c008",
+        "nsrp_c011",
+        "nsrp_c014",
+        "nsrp_c003",
+        "nsrp_c004"
+      ],
+      "notes": "Giám sát hiện trường, môi trường, SIMOPS và nắm chuẩn permit để hỗ trợ kiểm tra."
+    },
+    {
+      "role": "lab_qc",
+      "label": "Phòng lab / QC",
+      "recommended_courses": [
+        "nsrp_c009",
+        "nsrp_c002",
+        "nsrp_c015",
+        "nsrp_c016"
+      ],
+      "notes": "An toàn hóa chất trong lab, quy trình lấy mẫu và báo cáo chất lượng."
+    },
+    {
+      "role": "logistics",
+      "label": "Kho & logistics",
+      "recommended_courses": [
+        "nsrp_c010",
+        "nsrp_c002",
+        "nsrp_c006",
+        "nsrp_c016"
+      ],
+      "notes": "Tiếp nhận xe bồn, PPE kho và ứng phó sự cố tại khu vực tải dỡ."
+    },
+    {
+      "role": "engineer",
+      "label": "Kỹ sư hiện trường",
+      "recommended_courses": [
+        "nsrp_c005",
+        "nsrp_c008",
+        "nsrp_c011",
+        "nsrp_c014",
+        "nsrp_c016"
+      ],
+      "notes": "Hiểu vận hành, hỗ trợ HSE/SIMOPS và các vấn đề kỹ thuật đa ngành."
+    },
+    {
+      "role": "manager",
+      "label": "Quản lý / Trưởng ca",
+      "recommended_courses": [
+        "nsrp_c014",
+        "nsrp_c008",
+        "nsrp_c013",
+        "nsrp_c015",
+        "nsrp_c016"
+      ],
+      "notes": "Phối hợp nhà thầu, giám sát an toàn và giao tiếp trong sự cố."
+    },
+    {
+      "role": "contractor_staff",
+      "label": "Nhân viên nhà thầu",
+      "recommended_courses": [
+        "nsrp_c001",
+        "nsrp_c002",
+        "nsrp_c003",
+        "nsrp_c004",
+        "nsrp_c010",
+        "nsrp_c016"
+      ],
+      "notes": "Induction site, hóa chất và các khóa permit theo loại công việc được giao."
+    },
+    {
+      "role": "all_staff",
+      "label": "Toàn thể (tham chiếu)",
+      "recommended_courses": [
+        "nsrp_c001",
+        "nsrp_c012",
+        "nsrp_c015",
+        "nsrp_c016"
+      ],
+      "notes": "Các khóa nền áp dụng rộng; chi tiết theo phân công vị trí."
+    }
+  ],
+  "faqs": [
+    {
+      "id": "nsrp_faq_new",
+      "question": "Nhân viên mới vào nhà máy cần học gì trước?",
+      "answer": "Nên hoàn thành Induction site, Làm quen LMS, Nhận biết hóa chất & SDS, Ứng phó khẩn cấp & chữa cháy và Bảo mật thông tin theo lộ trình new_hire trên LMS."
+    },
+    {
+      "id": "nsrp_faq_register",
+      "question": "Đăng ký khóa học trên LMS thế nào?",
+      "answer": "Đăng nhập LMS NSRP, chọn lộ trình theo vị trí hoặc tìm khóa theo từ khóa, đọc tiên quyết rồi nhấn đăng ký. Một số khóa thực hành hoặc mô phỏng cần phê duyệt."
+    },
+    {
+      "id": "nsrp_faq_hot_work",
+      "question": "Hot work khác các công việc thường ở điểm nào?",
+      "answer": "Hot work cần giấy phép công việc (PTW), biện pháp phòng cháy, giám sát và chỉ người đã qua đào tạo hot work mới được thực hiện trong phạm vi quy định demo."
+    },
+    {
+      "id": "nsrp_faq_confined",
+      "question": "Vào bồn/thùng kín cần điều kiện gì?",
+      "answer": "Cần đánh giá không gian hạn chế, đo khí, thông gió, người standby bên ngoài và giấy phép hợp lệ — theo khóa Không gian hạn chế và quy trình nội bộ."
+    },
+    {
+      "id": "nsrp_faq_operator",
+      "question": "Vận hành xưởng nên ưu tiên khóa nào?",
+      "answer": "Ưu tiên Vận hành ổn định & chuyển đổi trạng thái an toàn, Handover ca, và các khóa HSE/môi trường liên quan vị trí theo lộ trình process_operator."
+    },
+    {
+      "id": "nsrp_faq_maintenance",
+      "question": "Bảo trì cần những chứng chỉ gì trong demo?",
+      "answer": "Thường cần nền tảng induction, hóa chất, Hot work, Không gian hạn chế và LOTO/bảo trì thiết bị quay tùy công việc — xem lộ trình maintenance."
+    },
+    {
+      "id": "nsrp_faq_fail",
+      "question": "Không đạt bài kiểm tra thì làm gì?",
+      "answer": "Được thi lại tối đa 2 lần; nên ôn SOP và tài liệu khóa. Nếu vẫn chưa đạt, liên hệ Phòng Đào tạo hoặc quản lý."
+    },
+    {
+      "id": "nsrp_faq_cert",
+      "question": "Chứng chỉ sắp hết hạn?",
+      "answer": "Kiểm tra mục Chứng chỉ trên LMS, đăng ký khóa refresher tương ứng và hoàn thành trước ngày hết hạn để tiếp tục ký permit hoặc làm việc trong khu vực yêu cầu."
+    },
+    {
+      "id": "nsrp_faq_contractor",
+      "question": "Nhà thầu có học khác CBCNV không?",
+      "answer": "Nhà thầu vẫn phải hoàn thành induction site và các khóa bắt buộc theo loại công việc; chi tiết theo lộ trình contractor_staff."
+    },
+    {
+      "id": "nsrp_faq_scope",
+      "question": "Chatbot không có thông tin thì sao?",
+      "answer": "Chatbot sẽ nói rõ chưa có dữ liệu trong bộ demo và gợi ý liên hệ Phòng Đào tạo, HSE hoặc quản lý trực tiếp để được hướng dẫn chính xác."
+    }
+  ],
+  "fallback_rules": {
+    "when_unknown": "Trong bộ dữ liệu demo hiện chưa có thông tin đó. Bạn có thể xem thêm trên LMS nội bộ hoặc liên hệ Phòng Đào tạo / HSE tại NSRP.",
+    "when_ambiguous": "Bạn cho biết thêm bạn thuộc bộ phận nào (vận hành, bảo trì, HSE, lab, kho…) hoặc khóa/permit bạn quan tâm để tôi gợi ý cụ thể hơn.",
+    "when_out_of_scope": "Tôi chỉ hỗ trợ trong phạm vi đào tạo nội bộ và nội dung khóa học tại khu liên hợp lọc hóa dầu Nghi Sơn trong bản demo này."
+  },
+  "suggested_questions": [
+    "Nhân viên mới vào nhà máy cần học gì trước?",
+    "Làm sao đăng ký khóa trên LMS NSRP?",
+    "Hot work và giấy phép công việc cần lưu ý gì?",
+    "Vận hành xưởng nên ưu tiên khóa nào?",
+    "Bảo trì cần những khóa chứng chỉ gì?",
+    "Làm việc trong không gian hạn chế cần điều kiện gì?",
+    "Chứng chỉ sắp hết hạn thì phải làm gì?",
+    "Nhà thầu phải học những gì trước khi vào site?"
+  ]
+}

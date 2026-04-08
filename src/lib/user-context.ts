@@ -1,17 +1,21 @@
-import currentUser from '@/data/current-user.json';
-import { knowledge } from '@/lib/knowledge';
+import {
+  loadCurrentUserForProfile,
+  loadKnowledgeForProfile,
+} from '@/lib/lms-data';
 
-function resolveCourseName(courseId: string): string {
-  const course = knowledge.courses.find((c) => c.id === courseId);
+function resolveCourseName(courseId: string, profile: string): string {
+  const course = loadKnowledgeForProfile(profile).courses.find(
+    (c) => c.id === courseId,
+  );
   return course ? course.title : courseId;
 }
 
-function resolveCourseList(courseIds: string[]): string {
-  return courseIds.map(resolveCourseName).join(', ');
+function resolveCourseList(courseIds: string[], profile: string): string {
+  return courseIds.map((id) => resolveCourseName(id, profile)).join(', ');
 }
 
 function formatCompetencies(
-  competencies: typeof currentUser.competencies,
+  competencies: ReturnType<typeof loadCurrentUserForProfile>['competencies'],
 ): string {
   return competencies
     .map(
@@ -22,7 +26,8 @@ function formatCompetencies(
     .join('\n');
 }
 
-export function buildUserContextPrompt() {
+export function buildUserContextPrompt(profile: string) {
+  const currentUser = loadCurrentUserForProfile(profile);
   return `
 Thông tin người dùng hiện tại:
 
@@ -35,9 +40,9 @@ Khung năng lực:
 ${formatCompetencies(currentUser.competencies)}
 
 Tình trạng học tập:
-- Đã hoàn thành: ${resolveCourseList(currentUser.learning_profile.completed_courses)}
-- Đang học: ${resolveCourseList(currentUser.learning_profile.in_progress_courses)}
-- Chứng chỉ hết hạn: ${resolveCourseList(currentUser.learning_profile.expired_certificates)}
+- Đã hoàn thành: ${resolveCourseList(currentUser.learning_profile.completed_courses, profile)}
+- Đang học: ${resolveCourseList(currentUser.learning_profile.in_progress_courses, profile)}
+- Chứng chỉ hết hạn: ${resolveCourseList(currentUser.learning_profile.expired_certificates, profile)}
 
 Nguyên tắc:
 - Ưu tiên gợi ý khóa học phù hợp với vai trò và level

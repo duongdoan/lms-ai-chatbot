@@ -1,0 +1,87 @@
+[
+  {
+    "id": "pico_faq_trainee",
+    "question": "Học viên mới nên học những khóa nào trước?",
+    "answer": "Nên bắt đầu với Làm quen LMS, Luật KDBH nền tảng, sau đó vào nhóm sản phẩm ô tô, quy trình hợp đồng và kỹ năng tư vấn theo lộ trình insurance_trainee trên LMS."
+  },
+  {
+    "id": "pico_faq_register",
+    "question": "Làm sao để đăng ký khóa học?",
+    "answer": "Đăng nhập LMS Pico, tìm khóa theo tên hoặc lộ trình vị trí, mở chi tiết và nhấn đăng ký. Một số khóa thực hành hệ thống cần phê duyệt."
+  },
+  {
+    "id": "pico_faq_fail",
+    "question": "Không đạt bài kiểm tra thì làm gì?",
+    "answer": "Bạn được thi lại tối đa 2 lần; nên ôn lại module pháp lý và tình huống trước khi thi lại."
+  },
+  {
+    "id": "pico_faq_cert",
+    "question": "Chứng chỉ sắp hết hạn thì xử lý thế nào?",
+    "answer": "Kiểm tra mục Chứng chỉ trên LMS, đăng ký khóa refresher hoặc khóa cập nhật quy định tương ứng và hoàn thành trước ngày hết hạn."
+  },
+  {
+    "id": "pico_faq_sales",
+    "question": "Tư vấn viên nên ưu tiên khóa nào?",
+    "answer": "Ưu tiên nhóm sản phẩm ô tô, quy trình hợp đồng, kỹ năng tư vấn, vận hành core/CRM và kỹ năng chốt hợp đồng theo lộ trình sales_agent."
+  },
+  {
+    "id": "pico_faq_claims",
+    "question": "Bộ phận bồi thường cần học gì?",
+    "answer": "Luồng giải quyết bồi thường cơ bản, xử lý khiếu nại, phòng chống gian lận và thao tác trên hệ thống theo các khóa gợi ý cho claims_staff."
+  },
+  {
+    "id": "pico_faq_knw_01",
+    "question": "Bảo hiểm phi nhân thọ là gì?",
+    "answer": "Bảo hiểm phi nhân thọ là loại hình bảo hiểm bảo vệ tài sản, trách nhiệm dân sự và con người trong các rủi ro ngắn hạn (thường 1 năm), không mang tính tiết kiệm hay đầu tư như bảo hiểm nhân thọ."
+  },
+  {
+    "id": "pico_faq_knw_02",
+    "question": "Bảo hiểm phi nhân thọ khác bảo hiểm nhân thọ ở điểm nào?",
+    "answer": "Thời hạn bảo hiểm: thường 1 năm (phi nhân thọ) so với dài hạn (nhân thọ).\nMục đích: bồi thường thiệt hại thực tế so với bảo vệ tài chính dài hạn/kết hợp tiết kiệm.\nNguyên tắc bồi thường: phi nhân thọ áp dụng nguyên tắc bồi thường, không làm người được bảo hiểm “có lợi” từ tổn thất."
+  },
+  {
+    "id": "pico_faq_knw_03",
+    "question": "Nguyên tắc bồi thường trong bảo hiểm phi nhân thọ là gì?",
+    "answer": "Doanh nghiệp bảo hiểm chỉ bồi thường đúng và đủ giá trị thiệt hại thực tế, không vượt quá số tiền bảo hiểm và không làm phát sinh lợi ích từ tổn thất."
+  },
+  {
+    "id": "pico_faq_knw_04",
+    "question": "Số tiền bảo hiểm là gì?",
+    "answer": "Là mức trách nhiệm tối đa mà doanh nghiệp bảo hiểm chi trả khi xảy ra sự kiện bảo hiểm theo hợp đồng."
+  },
+  {
+    "id": "pico_faq_knw_05",
+    "question": "Phí bảo hiểm được xác định dựa trên yếu tố nào?",
+    "answer": "Phí bảo hiểm phụ thuộc vào: mức độ rủi ro; giá trị tài sản/số tiền bảo hiểm; lịch sử tổn thất; điều khoản, điều kiện bảo hiểm; biểu phí đã được phê duyệt."
+  },
+  {
+    "id": "pico_faq_knw_06",
+    "question": "Thế nào là điều khoản loại trừ?",
+    "answer": "Là các trường hợp, nguyên nhân hoặc rủi ro mà doanh nghiệp bảo hiểm không có trách nhiệm bồi thường, được quy định rõ trong hợp đồng."
+  },
+  {
+    "id": "pico_faq_knw_07",
+    "question": "Bảo hiểm trùng là gì?",
+    "answer": "Là trường hợp một tài sản được bảo hiểm tại nhiều doanh nghiệp bảo hiểm cho cùng một rủi ro. Khi xảy ra tổn thất, các doanh nghiệp bảo hiểm sẽ chia sẻ trách nhiệm bồi thường theo tỷ lệ."
+  },
+  {
+    "id": "pico_faq_knw_08",
+    "question": "Tái bảo hiểm là gì?",
+    "answer": "Là việc doanh nghiệp bảo hiểm chuyển một phần trách nhiệm đã nhận bảo hiểm cho doanh nghiệp bảo hiểm khác nhằm phân tán rủi ro và đảm bảo an toàn tài chính."
+  },
+  {
+    "id": "pico_faq_knw_09",
+    "question": "Khi nào doanh nghiệp bảo hiểm có quyền từ chối bồi thường?",
+    "answer": "Trong các trường hợp như: sự kiện thuộc điều khoản loại trừ; khách hàng khai báo sai sự thật; không thực hiện nghĩa vụ thông báo tổn thất; vi phạm điều kiện hợp đồng."
+  },
+  {
+    "id": "pico_faq_knw_10",
+    "question": "Nguyên tắc trung thực tuyệt đối trong bảo hiểm là gì?",
+    "answer": "Cả bên mua bảo hiểm và doanh nghiệp bảo hiểm phải cung cấp đầy đủ, chính xác thông tin liên quan đến hợp đồng. Nếu cố ý cung cấp sai thông tin có thể dẫn đến hủy hợp đồng hoặc từ chối bồi thường."
+  },
+  {
+    "id": "pico_faq_scope",
+    "question": "Chatbot không có thông tin thì sao?",
+    "answer": "Chatbot sẽ nói rõ chưa có dữ liệu trong bộ demo và gợi ý liên hệ Phòng Đào tạo hoặc quản lý trực tiếp để được hướng dẫn chính xác."
+  }
+]

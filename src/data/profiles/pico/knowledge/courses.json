@@ -1,0 +1,466 @@
+[
+  {
+    "id": "pico_c001",
+    "title": "Làm quen LMS và văn hóa học tập tại Pico",
+    "category": "system",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "all_staff",
+      "insurance_trainee",
+      "new_hire"
+    ],
+    "duration": "2h",
+    "delivery_format": "e-learning",
+    "requires_approval": false,
+    "pass_score": 0,
+    "certificate_validity": "",
+    "prerequisites": [],
+    "keywords": [
+      "LMS",
+      "onboarding",
+      "Pico"
+    ],
+    "description": "Hướng dẫn điều hướng LMS, chính sách học tập và kênh hỗ trợ nội bộ dành cho người mới."
+  },
+  {
+    "id": "pico_c002",
+    "title": "Luật Kinh doanh bảo hiểm — nền tảng cho nhân viên mới",
+    "category": "legal_compliance",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "all_staff",
+      "insurance_trainee",
+      "new_hire"
+    ],
+    "duration": "8h",
+    "delivery_format": "blended",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [],
+    "keywords": [
+      "Luật KDBH",
+      "khung pháp lý",
+      "hợp đồng"
+    ],
+    "description": "Các khái niệm cơ bản về hợp đồng bảo hiểm, nguyên tắc tối đa thiện chí và phạm vi áp dụng trong demo nội bộ."
+  },
+  {
+    "id": "pico_c003",
+    "title": "Nhóm sản phẩm ô tô & TNDS bắt buộc",
+    "category": "product",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "sales_agent",
+      "insurance_trainee",
+      "claims_staff"
+    ],
+    "duration": "10h",
+    "delivery_format": "blended",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c002"
+    ],
+    "keywords": [
+      "ô tô",
+      "TNDS",
+      "xe cơ giới"
+    ],
+    "description": "Đặc điểm sản phẩm, điểm loại trừ thường gặp và cách trình bày quyền lợi cho khách hàng."
+  },
+  {
+    "id": "pico_c004",
+    "title": "Nhóm sản phẩm sức khỏe & con người",
+    "category": "product",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "intermediate",
+    "target_roles": [
+      "sales_agent",
+      "underwriting",
+      "insurance_trainee"
+    ],
+    "duration": "8h",
+    "delivery_format": "e-learning + workshop",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c002"
+    ],
+    "keywords": [
+      "sức khỏe",
+      "bảo hiểm con người"
+    ],
+    "description": "So sánh gói, thời gian chờ và khai báo sức khỏe — nội dung minh họa cho demo đào tạo."
+  },
+  {
+    "id": "pico_c005",
+    "title": "Quy trình ghi nhận hợp đồng và kiểm tra hồ sơ",
+    "category": "system",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "sales_agent",
+      "back_office",
+      "insurance_trainee"
+    ],
+    "duration": "6h",
+    "delivery_format": "blended",
+    "requires_approval": true,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c001"
+    ],
+    "keywords": [
+      "hợp đồng",
+      "hồ sơ",
+      "core"
+    ],
+    "description": "Các bước nhập liệu, đối soát chứng từ và cảnh báo sai lệch thường gặp trên hệ thống demo."
+  },
+  {
+    "id": "pico_c006",
+    "title": "Đạo đức nghề nghiệp & chống rửa tiền (AML)",
+    "category": "legal_compliance",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "all_staff"
+    ],
+    "duration": "5h",
+    "delivery_format": "e-learning",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [],
+    "keywords": [
+      "AML",
+      "đạo đức",
+      "KYC"
+    ],
+    "description": "Nhận diện giao dịch đáng ngờ, quy tắc xác minh khách hàng và báo cáo nội bộ."
+  },
+  {
+    "id": "pico_c007",
+    "title": "Quy trình giải quyết bồi thường cơ bản",
+    "category": "claims",
+    "type": "role_based",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "claims_staff",
+      "customer_service"
+    ],
+    "duration": "12h",
+    "delivery_format": "blended",
+    "requires_approval": true,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c002",
+      "pico_c003"
+    ],
+    "keywords": [
+      "bồi thường",
+      "hồ sơ",
+      "thẩm định"
+    ],
+    "description": "Luồng tiếp nhận, phân loại hồ sơ, khảo sát hiện trường và phối hợp bên thứ ba trong kịch bản demo."
+  },
+  {
+    "id": "pico_c008",
+    "title": "Thẩm định rủi ro & giới hạn trách nhiệm",
+    "category": "underwriting",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "intermediate",
+    "target_roles": [
+      "underwriting",
+      "sales_agent"
+    ],
+    "duration": "10h",
+    "delivery_format": "workshop",
+    "requires_approval": true,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c002",
+      "pico_c004"
+    ],
+    "keywords": [
+      "thẩm định",
+      "rủi ro",
+      "loại trừ"
+    ],
+    "description": "Đọc bảng tỷ lệ, điều khoản loại trừ và tình huống từ chối có căn cứ."
+  },
+  {
+    "id": "pico_c009",
+    "title": "Kỹ năng tư vấn bảo hiểm qua điện thoại và trực tiếp",
+    "category": "sales",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "basic",
+    "target_roles": [
+      "sales_agent",
+      "insurance_trainee"
+    ],
+    "duration": "8h",
+    "delivery_format": "role-play",
+    "requires_approval": false,
+    "pass_score": 0,
+    "certificate_validity": "",
+    "prerequisites": [
+      "pico_c003"
+    ],
+    "keywords": [
+      "tư vấn",
+      "telesales",
+      "SPIN"
+    ],
+    "description": "Kịch bản hỏi nhu cầu, làm rõ nhu cầu và xử lý từ chối theo chuẩn Pico demo."
+  },
+  {
+    "id": "pico_c010",
+    "title": "Xử lý khiếu nại và chăm sóc sau bán",
+    "category": "customer_service",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "intermediate",
+    "target_roles": [
+      "customer_service",
+      "claims_staff"
+    ],
+    "duration": "6h",
+    "delivery_format": "case study",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "",
+    "prerequisites": [
+      "pico_c007"
+    ],
+    "keywords": [
+      "khiếu nại",
+      "CSKH",
+      "escalation"
+    ],
+    "description": "Quy trình leo thang, ghi nhận SLA và giao tiếp trong tình huống căng thẳng."
+  },
+  {
+    "id": "pico_c011",
+    "title": "An toàn thông tin & bảo vệ dữ liệu cá nhân",
+    "category": "legal_compliance",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "all_staff"
+    ],
+    "duration": "4h",
+    "delivery_format": "e-learning",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [],
+    "keywords": [
+      "PDPA",
+      "bảo mật",
+      "dữ liệu"
+    ],
+    "description": "Phân loại dữ liệu khách hàng, lưu trữ và chia sẻ theo quy định nội bộ demo."
+  },
+  {
+    "id": "pico_c012",
+    "title": "Phòng chống gian lận bảo hiểm",
+    "category": "claims",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "intermediate",
+    "target_roles": [
+      "claims_staff",
+      "underwriting",
+      "compliance"
+    ],
+    "duration": "6h",
+    "delivery_format": "blended",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c006"
+    ],
+    "keywords": [
+      "gian lận",
+      "điều tra",
+      "dấu hiệu"
+    ],
+    "description": "Pattern gian lận thường gặp và phối hợp pháp chế nội bộ trong kịch bản huấn luyện."
+  },
+  {
+    "id": "pico_c013",
+    "title": "Báo cáo tuân thủ nội bộ và kỹ năng họp hiệu quả",
+    "category": "legal_compliance",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "intermediate",
+    "target_roles": [
+      "compliance",
+      "manager"
+    ],
+    "duration": "5h",
+    "delivery_format": "virtual class",
+    "requires_approval": true,
+    "pass_score": 0,
+    "certificate_validity": "",
+    "prerequisites": [
+      "pico_c006"
+    ],
+    "keywords": [
+      "tuân thủ",
+      "báo cáo",
+      "họp"
+    ],
+    "description": "Khung báo cáo, lưu vết và giao tiếp ngắn gọn trong họp trực tuyến."
+  },
+  {
+    "id": "pico_c014",
+    "title": "Vận hành hệ thống core & CRM dành cho tác nghiệp",
+    "category": "system",
+    "type": "role_based",
+    "mandatory": true,
+    "level": "intermediate",
+    "target_roles": [
+      "sales_agent",
+      "back_office",
+      "claims_staff"
+    ],
+    "duration": "8h",
+    "delivery_format": "sandbox lab",
+    "requires_approval": true,
+    "pass_score": 80,
+    "certificate_validity": "12 tháng",
+    "prerequisites": [
+      "pico_c001",
+      "pico_c005"
+    ],
+    "keywords": [
+      "CRM",
+      "core",
+      "tác nghiệp"
+    ],
+    "description": "Thao tác trên môi trường thử nghiệm: tra cứu hợp đồng, ticket và trạng thái bồi thường."
+  },
+  {
+    "id": "pico_c015",
+    "title": "Tiếng Anh giao tiếp trong bảo hiểm (Insurance English)",
+    "category": "soft_skill",
+    "type": "optional",
+    "mandatory": false,
+    "level": "basic",
+    "target_roles": [
+      "sales_agent",
+      "claims_staff",
+      "insurance_trainee"
+    ],
+    "duration": "12h",
+    "delivery_format": "blended",
+    "requires_approval": false,
+    "pass_score": 0,
+    "certificate_validity": "",
+    "prerequisites": [],
+    "keywords": [
+      "English",
+      "policy",
+      "claim"
+    ],
+    "description": "Từ vựng và mẫu câu cho email, họp ngắn và trao đổi với đối tác quốc tế."
+  },
+  {
+    "id": "pico_c016",
+    "title": "Báo cáo sự cố và quản lý rủi ro vận hành",
+    "category": "legal_compliance",
+    "type": "role_based",
+    "mandatory": false,
+    "level": "intermediate",
+    "target_roles": [
+      "manager",
+      "compliance",
+      "back_office"
+    ],
+    "duration": "4h",
+    "delivery_format": "e-learning",
+    "requires_approval": false,
+    "pass_score": 80,
+    "certificate_validity": "",
+    "prerequisites": [
+      "pico_c011"
+    ],
+    "keywords": [
+      "sự cố",
+      "ORM",
+      "báo cáo"
+    ],
+    "description": "Phân loại sự cố, thời hạn báo cáo và phối hợp IT trong kịch bản demo."
+  },
+  {
+    "id": "pico_c017",
+    "title": "Kỹ năng thuyết trình và chốt hợp đồng cơ bản",
+    "category": "sales",
+    "type": "optional",
+    "mandatory": false,
+    "level": "basic",
+    "target_roles": [
+      "sales_agent",
+      "insurance_trainee"
+    ],
+    "duration": "6h",
+    "delivery_format": "workshop",
+    "requires_approval": false,
+    "pass_score": 0,
+    "certificate_validity": "",
+    "prerequisites": [
+      "pico_c009"
+    ],
+    "keywords": [
+      "thuyết trình",
+      "chốt sale",
+      "trust"
+    ],
+    "description": "Cấu trúc bài nói ngắn, xử lý phản đối giá và minh bạch điều khoản."
+  },
+  {
+    "id": "pico_c018",
+    "title": "Cập nhật sản phẩm & quy định — tái đào tạo định kỳ",
+    "category": "product",
+    "type": "mandatory",
+    "mandatory": true,
+    "level": "basic",
+    "target_roles": [
+      "all_staff"
+    ],
+    "duration": "3h",
+    "delivery_format": "microlearning",
+    "requires_approval": false,
+    "pass_score": 0,
+    "certificate_validity": "3 tháng",
+    "prerequisites": [],
+    "keywords": [
+      "cập nhật",
+      "sản phẩm",
+      "newsletter"
+    ],
+    "description": "Bản tin quý về thay đổi điều khoản, phí và khuyến mại trong phạm vi demo nội bộ."
+  }
+]

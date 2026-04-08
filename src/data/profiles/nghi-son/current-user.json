@@ -1,0 +1,54 @@
+{
+  "id": "nsrp_user_op_01",
+  "name": "Lê Hoàng Nam",
+  "role": "process_operator",
+  "role_label": "Vận hành xưởng (Panel / Hiện trường)",
+  "experience_level": "intermediate",
+  "base_location": "Khu liên hợp lọc hóa dầu Nghi Sơn — Xưởng phân xưởng chính",
+  "learning_profile": {
+    "completed_courses": [
+      "nsrp_c001",
+      "nsrp_c002",
+      "nsrp_c004"
+    ],
+    "in_progress_courses": [
+      "nsrp_c005",
+      "nsrp_c007"
+    ],
+    "expired_certificates": []
+  },
+  "competencies": [
+    {
+      "id": "process_safety",
+      "name": "An toàn quy trình (Process safety)",
+      "current_level": "trung cấp",
+      "target_level": "nâng cao",
+      "note": "Cần củng cố phản ứng tình huống cảnh báo và lệnh cô lập thiết bị"
+    },
+    {
+      "id": "hse_compliance",
+      "name": "HSE & tuân thủ nội bộ",
+      "current_level": "trung cấp",
+      "target_level": "nâng cao",
+      "note": "Hot work, không gian hạn chế và PPE theo quy định site"
+    },
+    {
+      "id": "unit_operations",
+      "name": "Vận hành đơn nguyên (CDU/VDU, xử lý, tiện ích)",
+      "current_level": "trung cấp",
+      "target_level": "nâng cao",
+      "note": "Đang học khóa vận hành ổn định và chuyển đổi trạng thái an toàn"
+    },
+    {
+      "id": "digital_tools",
+      "name": "Hệ thống DCS / CMMS / LMS",
+      "current_level": "cơ bản",
+      "target_level": "trung cấp",
+      "note": "Thao tác ticket bảo trì và tra cứu SOP trên LMS"
+    }
+  ],
+  "preferences": {
+    "language": "vi",
+    "learning_style": "blended"
+  }
+}

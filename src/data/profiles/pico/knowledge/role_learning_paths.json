@@ -1,0 +1,101 @@
+[
+  {
+    "role": "new_hire",
+    "label": "Nhân viên mới",
+    "recommended_courses": [
+      "pico_c001",
+      "pico_c002",
+      "pico_c006",
+      "pico_c011",
+      "pico_c018"
+    ],
+    "notes": "Ưu tiên LMS, khung pháp lý, AML, an toàn dữ liệu và bản tin cập nhật định kỳ."
+  },
+  {
+    "role": "insurance_trainee",
+    "label": "Học viên chương trình đào tạo",
+    "recommended_courses": [
+      "pico_c001",
+      "pico_c002",
+      "pico_c003",
+      "pico_c005",
+      "pico_c009",
+      "pico_c015",
+      "pico_c017"
+    ],
+    "notes": "Lộ trình kết hợp sản phẩm ô tô, quy trình hợp đồng, kỹ năng tư vấn và tiếng Anh chuyên ngành."
+  },
+  {
+    "role": "sales_agent",
+    "label": "Tư vấn viên / Kinh doanh",
+    "recommended_courses": [
+      "pico_c003",
+      "pico_c004",
+      "pico_c005",
+      "pico_c009",
+      "pico_c014",
+      "pico_c017",
+      "pico_c015"
+    ],
+    "notes": "Tập trung sản phẩm, thao tác hệ thống, kỹ năng bán và chăm sóc khách hàng."
+  },
+  {
+    "role": "claims_staff",
+    "label": "Bồi thường",
+    "recommended_courses": [
+      "pico_c002",
+      "pico_c007",
+      "pico_c010",
+      "pico_c012",
+      "pico_c014",
+      "pico_c015"
+    ],
+    "notes": "Luồng bồi thường, khiếu nại, chống gian lận và phối hợp hệ thống."
+  },
+  {
+    "role": "underwriting",
+    "label": "Thẩm định / Underwriting",
+    "recommended_courses": [
+      "pico_c002",
+      "pico_c004",
+      "pico_c008",
+      "pico_c012",
+      "pico_c016"
+    ],
+    "notes": "Đánh giá rủi ro, điều khoản loại trừ và phối hợp tuân thủ."
+  },
+  {
+    "role": "customer_service",
+    "label": "Chăm sóc khách hàng",
+    "recommended_courses": [
+      "pico_c003",
+      "pico_c010",
+      "pico_c007",
+      "pico_c015"
+    ],
+    "notes": "Hiểu sản phẩm để trả lời đúng, xử lý khiếu nại và nâng cao tiếng Anh tình huống."
+  },
+  {
+    "role": "compliance",
+    "label": "Tuân thủ / Pháp chế hỗ trợ",
+    "recommended_courses": [
+      "pico_c006",
+      "pico_c011",
+      "pico_c012",
+      "pico_c013",
+      "pico_c016"
+    ],
+    "notes": "AML, dữ liệu, báo cáo nội bộ và quản lý sự cố."
+  },
+  {
+    "role": "manager",
+    "label": "Quản lý",
+    "recommended_courses": [
+      "pico_c013",
+      "pico_c016",
+      "pico_c008",
+      "pico_c010"
+    ],
+    "notes": "Định hướng đội nhóm tuân thủ, xử lý rủi ro và nâng cao chất lượng CSKH."
+  }
+]

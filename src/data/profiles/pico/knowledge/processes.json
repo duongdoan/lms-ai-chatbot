@@ -1,0 +1,42 @@
+[
+  {
+    "id": "pico_process_register",
+    "title": "Đăng ký khóa học",
+    "steps": [
+      "Đăng nhập LMS nội bộ Pico",
+      "Chọn lộ trình theo vị trí hoặc tìm khóa theo từ khóa (sản phẩm, tuân thủ, bồi thường…)",
+      "Đọc điều kiện tiên quyết và thời lượng",
+      "Nhấn đăng ký; chờ phê duyệt nếu khóa yêu cầu",
+      "Bắt đầu học khi trạng thái là Đã duyệt hoặc Đang học"
+    ]
+  },
+  {
+    "id": "pico_process_complete",
+    "title": "Hoàn thành khóa học",
+    "steps": [
+      "Hoàn thành toàn bộ nội dung và bài tập bắt buộc",
+      "Làm bài kiểm tra hoặc assessment nếu có",
+      "Đạt điểm tối thiểu theo khóa",
+      "Hệ thống ghi nhận hoàn thành và cập nhật hồ sơ năng lực"
+    ]
+  },
+  {
+    "id": "pico_process_retake",
+    "title": "Thi lại",
+    "steps": [
+      "Ôn tập theo đề cương và tài liệu nội bộ",
+      "Vào lại phần kiểm tra trên LMS",
+      "Sử dụng lượt thi lại trong giới hạn cho phép",
+      "Nếu chưa đạt, liên hệ Phòng Đào tạo hoặc quản lý để được hỗ trợ"
+    ]
+  },
+  {
+    "id": "pico_process_renewal",
+    "title": "Tái đào tạo / gia hạn chứng chỉ",
+    "steps": [
+      "Kiểm tra mục Chứng chỉ & hạn trên LMS",
+      "Đăng ký khóa refresher hoặc khóa cập nhật quy định tương ứng",
+      "Hoàn thành trước ngày hết hạn để tránh gián đoạn phân quyền nghiệp vụ"
+    ]
+  }
+]

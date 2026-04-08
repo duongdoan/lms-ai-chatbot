@@ -1,0 +1,37 @@
+[
+  {
+    "id": "pico_policy_mandatory",
+    "title": "Đào tạo bắt buộc theo vị trí",
+    "content": "Các khóa về Luật KDBH, đạo đức nghề nghiệp, AML và an toàn thông tin thường là bắt buộc theo nhóm vị trí (kinh doanh, bồi thường, thẩm định, vận hành)."
+  },
+  {
+    "id": "pico_policy_pass",
+    "title": "Điểm đạt và đánh giá",
+    "content": "Khóa có kiểm tra: điểm đạt mặc định từ 80 trở lên trừ khi khóa có quy định riêng. Một số khóa kỹ năng mềm chỉ yêu cầu hoàn thành bài tập tình huống."
+  },
+  {
+    "id": "pico_policy_retake",
+    "title": "Thi lại",
+    "content": "Được phép thi lại tối đa 2 lần với các khóa có bài kiểm tra; nên xem lại nội dung và tài liệu nội bộ trước khi thi lại."
+  },
+  {
+    "id": "pico_policy_completion",
+    "title": "Hoàn thành khóa học",
+    "content": "Hoàn thành khi học đủ module bắt buộc, đạt bài kiểm tra (nếu có) và xác nhận cam kết tuân thủ (nếu khóa yêu cầu)."
+  },
+  {
+    "id": "pico_policy_approval",
+    "title": "Phê duyệt học tập",
+    "content": "Khóa thực hành hệ thống production, khóa nâng cao dành cho quản lý hoặc khóa có chi phí lớp tập trung có thể cần phê duyệt từ quản lý trực tiếp hoặc Phòng Đào tạo."
+  },
+  {
+    "id": "pico_policy_certificate",
+    "title": "Hiệu lực chứng chỉ",
+    "content": "Một số chứng chỉ pháp lý và tuân thủ có chu kỳ 12 tháng; khóa cập nhật sản phẩm có thể theo quý. Học viên theo dõi nhắc hạn trên LMS."
+  },
+  {
+    "id": "pico_policy_scope",
+    "title": "Giới hạn dữ liệu demo",
+    "content": "Nếu câu hỏi vượt ngoài knowledge hiện có, chatbot phải nói rõ chưa có thông tin trong hệ thống demo và không tự suy diễn quy định pháp lý hay điều khoản hợp đồng."
+  }
+]
