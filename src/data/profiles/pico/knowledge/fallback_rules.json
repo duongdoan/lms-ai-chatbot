@@ -1,0 +1,5 @@
+{
+  "when_unknown": "Trong bộ dữ liệu demo hiện chưa có thông tin đó. Bạn có thể xem thêm trên LMS nội bộ hoặc liên hệ Phòng Đào tạo Pico.",
+  "when_ambiguous": "Bạn cho biết thêm bạn đang ở khối nào (kinh doanh, bồi thường, thẩm định…) hoặc khóa học bạn quan tâm để tôi gợi ý cụ thể hơn.",
+  "when_out_of_scope": "Tôi chỉ hỗ trợ trong phạm vi đào tạo nội bộ và nội dung khóa học của Công ty Bảo hiểm Pico trong bản demo này."
+}

@@ -15,6 +15,58 @@ export const DATA_PROFILE_COOKIE = 'lms_data_profile';
 const DEFAULT_PROFILE = 'default';
 const PROFILE_ID_RE = /^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$/;
 
+/** Thứ tự ghép fragment trong `profiles/<id>/knowledge/*.json` (cùng shape với `default/knowledge.json`). */
+const KNOWLEDGE_FRAGMENT_KEYS = [
+  'assistant',
+  'policies',
+  'processes',
+  'course_categories',
+  'courses',
+  'role_learning_paths',
+  'faqs',
+  'quiz_multiple_choice',
+  'fallback_rules',
+  'suggested_questions',
+] as const;
+
+function profileDirHasKnowledge(base: string): boolean {
+  if (fs.existsSync(path.join(base, 'knowledge.json'))) return true;
+  const kd = path.join(base, 'knowledge');
+  return (
+    fs.existsSync(kd) &&
+    fs.statSync(kd).isDirectory() &&
+    fs.existsSync(path.join(kd, 'assistant.json'))
+  );
+}
+
+function loadKnowledgeFromFragments(knowledgeDir: string): KnowledgeDataset {
+  const out: Record<string, unknown> = {};
+  for (const key of KNOWLEDGE_FRAGMENT_KEYS) {
+    const fp = path.join(knowledgeDir, `${key}.json`);
+    if (!fs.existsSync(fp)) {
+      throw new Error(
+        `Thiếu fragment knowledge: ${fp}. Bổ sung file hoặc dùng một file knowledge.json gộp.`,
+      );
+    }
+    out[key] = JSON.parse(fs.readFileSync(fp, 'utf8'));
+  }
+  return out as KnowledgeDataset;
+}
+
+function loadKnowledgeFromProfileDir(base: string): KnowledgeDataset {
+  const single = path.join(base, 'knowledge.json');
+  if (fs.existsSync(single)) {
+    return JSON.parse(fs.readFileSync(single, 'utf8')) as KnowledgeDataset;
+  }
+  const dir = path.join(base, 'knowledge');
+  if (fs.existsSync(dir) && fs.statSync(dir).isDirectory()) {
+    return loadKnowledgeFromFragments(dir);
+  }
+  throw new Error(
+    `Thiếu knowledge cho profile: ${base}. Cần knowledge.json hoặc thư mục knowledge/ đủ các file fragment.`,
+  );
+}
+
 /** Cookie / UI: profile hợp lệ trên đĩa. `LMS_DATA_PROFILE` chỉ là mặc định khi chưa có cookie. */
 export function getEnvDefaultProfile(): string {
   const name = process.env.LMS_DATA_PROFILE?.trim();
@@ -30,7 +82,7 @@ function profilesRoot(): string {
   );
 }
 
-/** Các thư mục profile có đủ knowledge.json + current-user.json. */
+/** Các thư mục profile có knowledge (file gộp hoặc thư mục fragment) + current-user.json. */
 export function listDataProfileIds(): string[] {
   const root = profilesRoot();
   if (!fs.existsSync(root)) return [];
@@ -44,7 +96,7 @@ export function listDataProfileIds(): string[] {
     if (!PROFILE_ID_RE.test(id)) continue;
     const base = path.join(root, id);
     if (
-      fs.existsSync(path.join(base, 'knowledge.json')) &&
+      profileDirHasKnowledge(base) &&
       fs.existsSync(path.join(base, 'current-user.json'))
     ) {
       ids.push(id);
@@ -64,12 +116,22 @@ export function listProfileSummaries(): ProfileSummary[] {
   return listDataProfileIds().map((id) => {
     let label = id;
     try {
-      const raw = fs.readFileSync(
-        path.join(profilesRoot(), id, 'knowledge.json'),
-        'utf8',
-      );
-      const parsed = JSON.parse(raw) as { assistant?: { name?: string } };
-      if (parsed.assistant?.name) label = parsed.assistant.name;
+      const base = path.join(profilesRoot(), id);
+      const single = path.join(base, 'knowledge.json');
+      if (fs.existsSync(single)) {
+        const parsed = JSON.parse(
+          fs.readFileSync(single, 'utf8'),
+        ) as { assistant?: { name?: string } };
+        if (parsed.assistant?.name) label = parsed.assistant.name;
+      } else {
+        const asst = path.join(base, 'knowledge', 'assistant.json');
+        if (fs.existsSync(asst)) {
+          const parsed = JSON.parse(
+            fs.readFileSync(asst, 'utf8'),
+          ) as { name?: string };
+          if (parsed.name) label = parsed.name;
+        }
+      }
     } catch {
       /* giữ id */
     }
@@ -97,20 +159,15 @@ function loadProfileBundle(profile: string): ProfileBundle {
   if (cached) return cached;
 
   const base = path.join(profilesRoot(), profile);
-  const knowledgePath = path.join(base, 'knowledge.json');
   const userPath = path.join(base, 'current-user.json');
 
-  for (const file of [knowledgePath, userPath]) {
-    if (!fs.existsSync(file)) {
-      throw new Error(
-        `Thiếu file dữ liệu LMS: ${file}. Kiểm tra thư mục src/data/profiles/${profile}/`,
-      );
-    }
+  if (!fs.existsSync(userPath)) {
+    throw new Error(
+      `Thiếu file dữ liệu LMS: ${userPath}. Kiểm tra thư mục src/data/profiles/${profile}/`,
+    );
   }
 
-  const knowledge = JSON.parse(
-    fs.readFileSync(knowledgePath, 'utf8'),
-  ) as KnowledgeDataset;
+  const knowledge = loadKnowledgeFromProfileDir(base);
   const currentUser = JSON.parse(
     fs.readFileSync(userPath, 'utf8'),
   ) as CurrentUserDataset;

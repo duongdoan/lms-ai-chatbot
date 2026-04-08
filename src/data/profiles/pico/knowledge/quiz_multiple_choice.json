@@ -1,0 +1,269 @@
+{
+  "title": "Ngân hàng câu hỏi trắc nghiệm — ôn tập kiến thức bảo hiểm phi nhân thọ (demo)",
+  "parts": [
+    {
+      "part_id": "I",
+      "heading": "PHẦN I – KIẾN THỨC CƠ BẢN",
+      "questions": [
+        {
+          "id": "pico_mcq_01",
+          "number": 1,
+          "question": "Bảo hiểm phi nhân thọ chủ yếu bảo vệ đối tượng nào?",
+          "options": {
+            "A": "Tính mạng dài hạn",
+            "B": "Tài sản, trách nhiệm dân sự và rủi ro ngắn hạn",
+            "C": "Tiết kiệm và đầu tư",
+            "D": "Hưu trí"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_02",
+          "number": 2,
+          "question": "Thời hạn hợp đồng bảo hiểm phi nhân thọ thường là:",
+          "options": {
+            "A": "5–10 năm",
+            "B": "10–20 năm",
+            "C": "1 năm hoặc ngắn hạn",
+            "D": "Trọn đời"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_03",
+          "number": 3,
+          "question": "Nguyên tắc bồi thường trong bảo hiểm phi nhân thọ là:",
+          "options": {
+            "A": "Chi trả gấp đôi thiệt hại",
+            "B": "Bồi thường đúng và đủ thiệt hại thực tế",
+            "C": "Trả toàn bộ số tiền bảo hiểm dù thiệt hại nhỏ",
+            "D": "Trả theo yêu cầu khách hàng"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_04",
+          "number": 4,
+          "question": "Số tiền bảo hiểm là:",
+          "options": {
+            "A": "Số tiền khách hàng mong muốn nhận",
+            "B": "Mức phí bảo hiểm phải đóng",
+            "C": "Mức trách nhiệm tối đa của doanh nghiệp bảo hiểm",
+            "D": "Giá trị khuyến mại"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_05",
+          "number": 5,
+          "question": "Điều khoản loại trừ là:",
+          "options": {
+            "A": "Trường hợp được ưu tiên bồi thường",
+            "B": "Trường hợp doanh nghiệp bảo hiểm không bồi thường",
+            "C": "Khoản giảm phí",
+            "D": "Phần thưởng cho khách hàng"
+          },
+          "correct": "B"
+        }
+      ]
+    },
+    {
+      "part_id": "II",
+      "heading": "PHẦN II – NGHIỆP VỤ & NGUYÊN TẮC",
+      "questions": [
+        {
+          "id": "pico_mcq_06",
+          "number": 6,
+          "question": "Trong trường hợp bảo hiểm trùng, doanh nghiệp bảo hiểm sẽ:",
+          "options": {
+            "A": "Doanh nghiệp nào ký trước sẽ trả toàn bộ",
+            "B": "Từ chối bồi thường",
+            "C": "Chia sẻ bồi thường theo tỷ lệ",
+            "D": "Khách hàng tự chọn nơi nhận tiền"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_07",
+          "number": 7,
+          "question": "Tái bảo hiểm nhằm mục đích:",
+          "options": {
+            "A": "Tăng phí bảo hiểm",
+            "B": "Giảm hoa hồng đại lý",
+            "C": "Phân tán rủi ro cho doanh nghiệp bảo hiểm",
+            "D": "Giảm quyền lợi khách hàng"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_08",
+          "number": 8,
+          "question": "Nguyên tắc trung thực tuyệt đối yêu cầu:",
+          "options": {
+            "A": "Chỉ doanh nghiệp bảo hiểm phải trung thực",
+            "B": "Chỉ khách hàng phải trung thực",
+            "C": "Cả hai bên phải cung cấp thông tin chính xác",
+            "D": "Không cần khai báo chi tiết"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_09",
+          "number": 9,
+          "question": "Phí bảo hiểm phụ thuộc vào:",
+          "options": {
+            "A": "Sở thích khách hàng",
+            "B": "Mức độ rủi ro và biểu phí phê duyệt",
+            "C": "Do nhân viên tự quyết định",
+            "D": "Do khách hàng thương lượng tự do"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_10",
+          "number": 10,
+          "question": "Doanh nghiệp bảo hiểm có thể từ chối bồi thường khi:",
+          "options": {
+            "A": "Tổn thất xảy ra",
+            "B": "Khách hàng đóng phí đầy đủ",
+            "C": "Sự kiện thuộc điều khoản loại trừ",
+            "D": "Có hợp đồng"
+          },
+          "correct": "C"
+        }
+      ]
+    },
+    {
+      "part_id": "III",
+      "heading": "PHẦN III – ỨNG DỤNG THỰC TẾ",
+      "questions": [
+        {
+          "id": "pico_mcq_11",
+          "number": 11,
+          "question": "Nếu khách hàng khai báo sai giá trị tài sản để giảm phí, khi tổn thất xảy ra có thể:",
+          "options": {
+            "A": "Được bồi thường đủ",
+            "B": "Không ảnh hưởng",
+            "C": "Bị giảm hoặc từ chối bồi thường",
+            "D": "Được thưởng thêm"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_12",
+          "number": 12,
+          "question": "Trong bảo hiểm tài sản, nếu số tiền bảo hiểm thấp hơn giá trị thực tế thì áp dụng:",
+          "options": {
+            "A": "Bồi thường toàn bộ",
+            "B": "Nguyên tắc bồi thường theo tỷ lệ",
+            "C": "Tăng phí sau tổn thất",
+            "D": "Hủy hợp đồng ngay"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_13",
+          "number": 13,
+          "question": "Bảo hiểm trách nhiệm dân sự chi trả khi:",
+          "options": {
+            "A": "Tài sản của người mua bảo hiểm hư hỏng",
+            "B": "Người được bảo hiểm gây thiệt hại cho bên thứ ba",
+            "C": "Người mua muốn rút tiền",
+            "D": "Không có thiệt hại"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_14",
+          "number": 14,
+          "question": "Hoa hồng bảo hiểm phải:",
+          "options": {
+            "A": "Do nhân viên tự quyết",
+            "B": "Chi vượt trần để cạnh tranh",
+            "C": "Theo đúng quy định và biểu đã phê duyệt",
+            "D": "Trả cho khách hàng"
+          },
+          "correct": "C"
+        },
+        {
+          "id": "pico_mcq_15",
+          "number": 15,
+          "question": "Sự kiện bảo hiểm là:",
+          "options": {
+            "A": "Bất kỳ sự việc nào xảy ra",
+            "B": "Sự kiện được quy định trong hợp đồng",
+            "C": "Tin đồn thị trường",
+            "D": "Ý kiến khách hàng"
+          },
+          "correct": "B"
+        }
+      ]
+    },
+    {
+      "part_id": "IV",
+      "heading": "PHẦN IV – TUÂN THỦ & QUẢN TRỊ RỦI RO",
+      "questions": [
+        {
+          "id": "pico_mcq_16",
+          "number": 16,
+          "question": "Giảm phí trái quy định có thể dẫn đến:",
+          "options": {
+            "A": "Tăng doanh thu",
+            "B": "Vi phạm pháp luật",
+            "C": "Tăng uy tín",
+            "D": "Không ảnh hưởng"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_17",
+          "number": 17,
+          "question": "Combo bảo hiểm đúng quy định phải:",
+          "options": {
+            "A": "Tự ý giảm phí từng sản phẩm",
+            "B": "Tính phí đúng biểu phí từng sản phẩm thành phần",
+            "C": "Không cần hợp đồng",
+            "D": "Gộp chung không tách biệt"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_18",
+          "number": 18,
+          "question": "Ghi nhận doanh thu bảo hiểm phải:",
+          "options": {
+            "A": "Theo cảm tính",
+            "B": "Theo hệ thống và đúng nghiệp vụ",
+            "C": "Theo thỏa thuận miệng",
+            "D": "Ghi sau khi bồi thường"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_19",
+          "number": 19,
+          "question": "Khi xảy ra tổn thất, khách hàng cần:",
+          "options": {
+            "A": "Tự sửa chữa ngay không thông báo",
+            "B": "Thông báo kịp thời cho doanh nghiệp bảo hiểm",
+            "C": "Chờ 1 tháng",
+            "D": "Hủy hợp đồng"
+          },
+          "correct": "B"
+        },
+        {
+          "id": "pico_mcq_20",
+          "number": 20,
+          "question": "Mục tiêu cốt lõi của bảo hiểm phi nhân thọ là:",
+          "options": {
+            "A": "Đầu tư sinh lời cao",
+            "B": "Bảo vệ tài chính trước rủi ro",
+            "C": "Tặng quà khuyến mại",
+            "D": "Giảm thuế"
+          },
+          "correct": "B"
+        }
+      ]
+    }
+  ]
+}
