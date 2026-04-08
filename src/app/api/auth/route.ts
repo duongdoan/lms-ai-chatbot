@@ -4,6 +4,30 @@ import { NextResponse } from 'next/server';
 const SESSION_COOKIE = 'vna_session';
 const SESSION_MAX_AGE = 60 * 60 * 24; // 24h
 
+function sessionUsername(token: string): string | null {
+  try {
+    const raw = Buffer.from(token, 'base64').toString('utf8');
+    const colon = raw.indexOf(':');
+    if (colon <= 0) return null;
+    return raw.slice(0, colon);
+  } catch {
+    return null;
+  }
+}
+
+export async function GET() {
+  const jar = await cookies();
+  const token = jar.get(SESSION_COOKIE)?.value;
+  if (!token) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  const username = sessionUsername(token);
+  if (!username) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  return NextResponse.json({ username });
+}
+
 export async function POST(req: Request) {
   const { username, password } = await req.json();
 

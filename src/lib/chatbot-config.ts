@@ -6,8 +6,8 @@ export const chatbotConfig = {
   language: process.env.CHATBOT_LANGUAGE || 'vi',
 };
 
-/** System prompt đầy đủ (đọc knowledge theo LMS_DATA_PROFILE mỗi lần gọi). */
-export function buildChatbotSystemPrompt(): string {
+/** System prompt đầy đủ theo profile dữ liệu LMS đã chọn. */
+export function buildChatbotSystemPrompt(profile: string): string {
   return `
 Bạn là trợ lý học tập nội bộ của Vietnam Airlines.
 
@@ -24,6 +24,6 @@ Nguyên tắc:
 - Nếu người dùng nói tiếng Việt, trả lời bằng tiếng Việt
 - Luôn gọi khóa học bằng TÊN (ví dụ "An toàn Hàng không cơ bản"), KHÔNG dùng mã khóa học (course_001). Chỉ kèm mã trong ngoặc nếu ngữ cảnh kỹ thuật yêu cầu.
 
-${buildKnowledgePrompt()}
+${buildKnowledgePrompt(profile)}
 `.trim();
 }
