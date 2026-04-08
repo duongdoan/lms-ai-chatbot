@@ -1,13 +1,13 @@
-import knowledge from '@/data/knowledge.json';
+import { loadKnowledge, type KnowledgeDataset } from '@/lib/lms-data';
 
-export type Knowledge = typeof knowledge;
+export type Knowledge = KnowledgeDataset;
 
 export function getKnowledge() {
-  return knowledge;
+  return loadKnowledge();
 }
 
 export function buildKnowledgePrompt() {
-  const data = getKnowledge();
+  const data = loadKnowledge();
 
   return `
 Thông tin knowledge nội bộ của chatbot:

@@ -1,10 +1,14 @@
-import { buildKnowledgePrompt } from "./chatbot-knowledge";
+import { buildKnowledgePrompt } from './chatbot-knowledge';
 
 export const chatbotConfig = {
   name: process.env.CHATBOT_NAME || 'VNA Learning Assistant',
   domain: process.env.CHATBOT_DOMAIN || 'Học tập và đào tạo nội bộ',
   language: process.env.CHATBOT_LANGUAGE || 'vi',
-  systemPrompt: `
+};
+
+/** System prompt đầy đủ (đọc knowledge theo LMS_DATA_PROFILE mỗi lần gọi). */
+export function buildChatbotSystemPrompt(): string {
+  return `
 Bạn là trợ lý học tập nội bộ của Vietnam Airlines.
 
 Nhiệm vụ:
@@ -21,5 +25,5 @@ Nguyên tắc:
 - Luôn gọi khóa học bằng TÊN (ví dụ "An toàn Hàng không cơ bản"), KHÔNG dùng mã khóa học (course_001). Chỉ kèm mã trong ngoặc nếu ngữ cảnh kỹ thuật yêu cầu.
 
 ${buildKnowledgePrompt()}
-`.trim(),
-};
+`.trim();
+}

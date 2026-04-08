@@ -1,0 +1,53 @@
+{
+  "id": "pico_user_trainee_01",
+  "name": "Trần Minh Khôi",
+  "role": "insurance_trainee",
+  "role_label": "Học viên chương trình đào tạo nội bộ",
+  "experience_level": "new",
+  "base_location": "Hà Nội — Khối kinh doanh",
+  "learning_profile": {
+    "completed_courses": [
+      "pico_c001",
+      "pico_c002"
+    ],
+    "in_progress_courses": [
+      "pico_c003",
+      "pico_c005"
+    ],
+    "expired_certificates": []
+  },
+  "competencies": [
+    {
+      "id": "product_knowledge",
+      "name": "Kiến thức sản phẩm bảo hiểm",
+      "current_level": "cơ bản",
+      "target_level": "trung cấp",
+      "note": "Đang học các nhóm sản phẩm ô tô, sức khỏe và tài sản"
+    },
+    {
+      "id": "compliance",
+      "name": "Tuân thủ pháp lý & quy trình nội bộ",
+      "current_level": "cơ bản",
+      "target_level": "trung cấp",
+      "note": "Cần nắm Luật KDBH và quy định đạo đức nghề nghiệp"
+    },
+    {
+      "id": "consultation",
+      "name": "Tư vấn & giao tiếp với khách hàng",
+      "current_level": "cơ bản",
+      "target_level": "trung cấp",
+      "note": "Thực hành kịch bản tư vấn và xử lý từ chối"
+    },
+    {
+      "id": "digital_tools",
+      "name": "Sử dụng hệ thống core & CRM",
+      "current_level": "mới bắt đầu",
+      "target_level": "cơ bản",
+      "note": "Làm quen với LMS, hệ thống hợp đồng và kênh số"
+    }
+  ],
+  "preferences": {
+    "language": "vi",
+    "learning_style": "blended"
+  }
+}

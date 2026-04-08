@@ -1,8 +1,7 @@
-import currentUser from '@/data/current-user.json';
-import { knowledge } from '@/lib/knowledge';
+import { loadCurrentUser, loadKnowledge } from '@/lib/lms-data';
 
 function resolveCourseName(courseId: string): string {
-  const course = knowledge.courses.find((c) => c.id === courseId);
+  const course = loadKnowledge().courses.find((c) => c.id === courseId);
   return course ? course.title : courseId;
 }
 
@@ -11,7 +10,7 @@ function resolveCourseList(courseIds: string[]): string {
 }
 
 function formatCompetencies(
-  competencies: typeof currentUser.competencies,
+  competencies: ReturnType<typeof loadCurrentUser>['competencies'],
 ): string {
   return competencies
     .map(
@@ -23,6 +22,7 @@ function formatCompetencies(
 }
 
 export function buildUserContextPrompt() {
+  const currentUser = loadCurrentUser();
   return `
 Thông tin người dùng hiện tại:
 
